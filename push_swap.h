@@ -2,17 +2,9 @@
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
+# include "dlist.h"
 
 # define EMPTY -1
-
-
-typedef struct	g_element
-{
-	int			value;
-	int			ind_pos;
-	int			ind_val;
-	int			ind_base;
-}				t_element;
 
 typedef struct	g_stack {
 	t_element	*arr;
@@ -23,8 +15,8 @@ typedef struct	g_stack {
 
 typedef	struct g_push_swap
 {
-	t_stack		*a;
-	t_stack		*b;
+	t_dlist		*a;
+	t_dlist		*b;
 	int			counter;
 }				t_push_swap;
 
