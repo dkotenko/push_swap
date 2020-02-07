@@ -11,6 +11,8 @@ int median_of_three(int a, int b, int c)
 }
 
 
+
+
 void	ft_qsort(int *arr, int start, int end)
 {  
   int	pivot;
@@ -28,7 +30,11 @@ void	ft_qsort(int *arr, int start, int end)
     while (arr[j] > pivot)
     	j--;
     if (i <= j)
-		swap(arr, i++, j--);      	
+	{
+		swap(&i, &j);
+		i++;
+		j++;
+	}      	
   }
   if (start < j)
     ft_qsort(arr, start, j);

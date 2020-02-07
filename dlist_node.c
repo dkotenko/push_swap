@@ -26,6 +26,7 @@ t_dlist_node	*t_dlist_insert_after(t_dlist *list, t_dlist_node *node, t_dlist_no
 		node->next->prev = new;
 	}
 	node->next = new;
+	list->size++;
 	return (new);
 }
 
@@ -40,6 +41,7 @@ t_dlist_node	*t_dlist_insert_before(t_dlist *list, t_dlist_node *node, t_dlist_n
 		node->prev->next = new;
 	}
 	node->prev = new;
+	list->size++;
 	return (new);
 }
 

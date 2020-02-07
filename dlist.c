@@ -21,6 +21,11 @@ t_dlist_node	*t_dlist_pop(t_dlist *list, t_dlist_node *node)
 		list->tail = node->prev;
 	else
 		node->next->prev = node->prev;
+	if (node->next == node && node->prev == node)
+	{
+		list->head = NULL;
+		list->tail = NULL;
+	}
 	node->next = NULL;
 	node->prev = NULL;
 	return (node);
