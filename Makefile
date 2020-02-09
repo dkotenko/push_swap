@@ -14,7 +14,9 @@
 SOURCES = main.c \
 		swap.c \
 		t_push_swap.c \
-		t_stack.c
+		t_stack.c \
+		quick_sort.c \
+		bubble_sort.c
 
 HEAD = ./src/filler.h
 OBJECTS = $(SOURCES:%.c=%.o)

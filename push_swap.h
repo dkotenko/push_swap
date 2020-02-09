@@ -48,6 +48,10 @@ void	t_stack_swap(t_stack *list);
 t_node		*t_node_new(int data);
 void	t_stack_print(t_stack *list);
 
+void	ft_qsort(int *arr, int start, int end);
+void    print_arr(int *arr, int size);
+void    bubble_sort(int *arr, int size);
+
 /*
  * commands
  */

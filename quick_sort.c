@@ -10,7 +10,15 @@ int median_of_three(int a, int b, int c)
         return c;
 }
 
+void    print_arr(int *arr, int size)
+{
+    int i;
 
+    i = 0;
+    while (i < size)
+        printf("%d ", arr[i++]);
+    printf("\n");
+}
 
 
 void	ft_qsort(int *arr, int start, int end)
@@ -21,27 +29,31 @@ void	ft_qsort(int *arr, int start, int end)
 
   i = start;
   j = end;
+  int k = 0;
   
-  pivot = median_of_three(arr[start], arr[end], arr[(start + end) / 2]);
+  pivot = median_of_three(arr[start], arr[end], arr[(start + end) / 2]);  
   while (i <= j)
   {
     while (arr[i] < pivot)
     	i++;
     while (arr[j] > pivot)
-    	j--;
+    	j--;    
+    
     if (i <= j)
 	{
-		swap(&i, &j);
+        printf(" 1 %d %d \n", arr[i], arr[j]);
+		swap(&arr[i], &arr[j]);
+        printf(" 2 %d %d \n", arr[i], arr[j]);
 		i++;
 		j++;
-	}      	
+	}    
   }
   if (start < j)
     ft_qsort(arr, start, j);
   if (end > i)
     ft_qsort(arr, i, end);
 }
-
+/*
 #include <stdio.h>
 int main()
 {
@@ -55,4 +67,4 @@ int main()
 	printf("\n");
 	return 0;
 }
-
+*/

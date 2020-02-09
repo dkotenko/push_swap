@@ -7,17 +7,29 @@ int		get_median(t_stack *stack)
 	t_node	*tmp;
 	int		median;
 
+	i = 0;
 	tmp = stack->head;
 	arr = (int *)malloc(sizeof(int) * stack->size);
 	while (i < stack->size)
 	{
-		arr[i++] = tmp;
+		arr[i++] = tmp->val;
 		tmp = tmp->next;
 	}
-	ft_qsort(arr);
+	bubble_sort(arr, stack->size);	
 	median = arr[stack->size / 2];
 	free(arr);
 	return (median);
+}
+
+void split_stack(t_stack *a)
+{
+	int median;
+	t_node *tmp;
+
+	tmp = a->head;
+	median = get_median(a);
+	while (tmp->val < median)
+		pb(ps);
 }
 
 int		main()
@@ -30,7 +42,11 @@ int		main()
 		t_stack_append(ps->a, t_node_new(a[i]));
 		i++;
 	}
-	int median = get_median(ps->a);	
+	
+	while (!is_sorted(ps->a))
+	{		
+		split_stack(ps->a);
+	}	
 	t_node *tmp = ps->a->head;
 	
 	return (0);
