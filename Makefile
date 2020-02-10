@@ -16,7 +16,8 @@ SOURCES = main.c \
 		t_push_swap.c \
 		t_stack.c \
 		quick_sort.c \
-		bubble_sort.c
+		bubble_sort.c \
+		commands.c
 
 HEAD = ./src/filler.h
 OBJECTS = $(SOURCES:%.c=%.o)
@@ -40,11 +41,8 @@ libft:
 
 clean:	
 		/bin/rm -f $(OBJECTS)
-		make clean -C libft/
 
-
-fclean: clean	
-		make fclean -C libft/
+fclean: clean		
 		/bin/rm -f $(LEMIN)
 
 re: fclean all

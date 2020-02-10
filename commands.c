@@ -5,7 +5,7 @@ int		sa(t_push_swap *ps)
 	ps->counter++;
 	if (ps->a->size > 1)
 	{
-		swap(ps->a->head, ps->a->head->next);
+		swap(&ps->a->head->val, &ps->a->head->next->val);
 		return (1);
 	}
 	return (0);
@@ -16,7 +16,7 @@ int		sb(t_push_swap *ps)
 	ps->counter++;
 	if (ps->b->size > 1)
 	{
-		swap(ps->b->head, ps->b->head->next);		
+		swap(&ps->b->head->val, &ps->b->head->next->val);		
 		return (1);
 	}
 	return (0);
@@ -71,6 +71,9 @@ int		t_stack_shift_up(t_stack *stack)
 }
 	
 
+/*
+ * Shift up 
+ */
 
 int		ra(t_push_swap *ps)
 {
@@ -79,6 +82,9 @@ int		ra(t_push_swap *ps)
 	return (1);
 }
 
+/*
+ * Shift up 
+ */
 int		rb(t_push_swap *ps)
 {
 	ps->counter++;
@@ -86,6 +92,9 @@ int		rb(t_push_swap *ps)
 	return (1);
 }
 
+/*
+ * Shift up 
+ */
 int		rr(t_push_swap *ps)
 {
 	ra(ps);
@@ -93,6 +102,9 @@ int		rr(t_push_swap *ps)
 	return (1);
 }
 
+/*
+ * Shift down
+ */
 int		rra(t_push_swap *ps)
 {
 	ps->counter++;
@@ -100,6 +112,9 @@ int		rra(t_push_swap *ps)
 	return (1);
 }
 
+/*
+ * Shift down
+ */
 int		rrb(t_push_swap *ps)
 {
 	ps->counter++;
@@ -107,6 +122,9 @@ int		rrb(t_push_swap *ps)
 	return (1);
 }
 
+/*
+ * Shift down
+ */
 int		rrr(t_push_swap *ps)
 {
 	rra(ps);

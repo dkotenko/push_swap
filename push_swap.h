@@ -35,7 +35,6 @@ typedef	struct g_push_swap
 
 
 void	swap(int *a, int *b);
-t_push_swap		*t_push_swap_new(void);
 t_stack		*t_stack_new();
 t_node	*t_stack_insert_in_empty(t_stack *list, t_node *new);
 t_node	*t_stack_insert_after(t_stack *list, t_node *node, t_node *new);
@@ -51,6 +50,12 @@ void	t_stack_print(t_stack *list);
 void	ft_qsort(int *arr, int start, int end);
 void    print_arr(int *arr, int size);
 void    bubble_sort(int *arr, int size);
+
+/*
+ *	t_push_swap
+ */
+void			t_push_swap_print(t_push_swap *ps);
+t_push_swap		*t_push_swap_new(void);
 
 /*
  * commands

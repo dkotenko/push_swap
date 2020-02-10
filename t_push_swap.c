@@ -14,3 +14,9 @@ t_push_swap		*t_push_swap_new(void)
 	return (ps);
 }
 
+void			t_push_swap_print(t_push_swap *ps)
+{
+	t_stack_print(ps->a);
+	t_stack_print(ps->b);
+	printf("MOVES NUMBER: %d\n", ps->counter);
+}
