@@ -52,7 +52,7 @@ t_node	*t_stack_append(t_stack *list, t_node *new)
 t_node	*t_stack_push(t_stack *list, t_node *new)
 {
 	if (list->size)
-		t_stack_insert_after(list, list->tail->next, new);
+		t_stack_insert_after(list, list->tail, new);
 	else
 		t_stack_insert_in_empty(list, new);
 	list->head = new;
@@ -70,6 +70,8 @@ t_node		*t_stack_max(t_stack *list)
 	max_node = list->head;
 	while (tmp != list->head)
 	{
+		if (!tmp)
+			break ;
 		if (max < tmp->val)
 		{
 			max = tmp->val;
@@ -91,6 +93,8 @@ t_node		*t_stack_min(t_stack *list)
 	min_node = list->head;
 	while (tmp != list->head)
 	{
+		if (!tmp)
+			break ;
 		if (min < tmp->val)
 		{
 			min = tmp->val;
@@ -143,6 +147,8 @@ t_node		*t_node_new(int data)
 	new->val = data;
 	new->prev = NULL;
 	new->next = NULL;
+	new->index = -1;
+	new->sort_index = -1;
 	return (new);
 }
 
@@ -158,9 +164,25 @@ void	t_stack_print(t_stack *list)
 		printf("%d ", tmp->val);
 		tmp = tmp->next;
 	}
-	printf("\n");	
+	printf("\n");
 }
 
+void	t_stack_free(t_stack *stack)
+{
+	int		i;
+	t_node	*node;
+	t_node	*node_next;
 
+	i = 0;
+	node = stack->head;
+	node_next = node->next;
+	while (i < stack->size)
+	{
+		free(node);
+		node = node_next;
+		node_next = node->next;
+		i++;
+	}
+}
 
 

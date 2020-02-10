@@ -10,7 +10,9 @@ typedef struct		g_node
 {
 	struct g_node	*next;
 	struct g_node	*prev;	
-	int				val;	
+	int				val;
+	int 			sort_index;
+	int 			index;
 }					t_node;
 
 typedef	struct	g_stack
@@ -50,6 +52,13 @@ void	t_stack_print(t_stack *list);
 void	ft_qsort(int *arr, int start, int end);
 void    print_arr(int *arr, int size);
 void    bubble_sort(int *arr, int size);
+void		t_stack_bubble_sort(t_stack *stack);
+void	t_stack_free(t_stack *stack);
+
+t_node		*t_node_get_by_sort_index(t_stack *stack, int index);
+t_node		*t_node_get_by_index(t_stack *stack, int index);
+int 		t_node_get_curr_index(t_stack *stack, t_node *node);
+
 
 /*
  *	t_push_swap

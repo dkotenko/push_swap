@@ -24,3 +24,33 @@ void    bubble_sort(int *arr, int size)
         i++;		
     }	
 }
+
+void		t_stack_bubble_sort(t_stack *stack)
+{
+	t_node	*node;
+	t_node	*next_node;
+	int		sorted;
+	int 	i;
+	int 	j;
+
+	node = stack->head;
+	sorted = 1;
+	i = -1;
+	while (++i < stack->size && sorted)
+	{
+		sorted = 0;
+		j = i;
+		next_node = node->next;
+		while (++j < stack->size)
+		{
+			if (next_node->val < node->val)
+			{
+				swap(&next_node->val, &node->val);
+				swap(&next_node->index, &node->index);
+				sorted = 1;
+			}
+			next_node = next_node->next;
+		}
+		node = node->next;
+	}
+}
