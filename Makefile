@@ -17,7 +17,8 @@ SOURCES = main.c \
 		t_stack.c \
 		quick_sort.c \
 		bubble_sort.c \
-		commands.c
+		commands.c \
+		t_node.c
 
 HEAD = ./src/filler.h
 OBJECTS = $(SOURCES:%.c=%.o)
