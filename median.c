@@ -21,20 +21,14 @@ int		get_median(t_stack *stack)
 	return (median);
 }
 
-void move_pb(t_push_swap *ps, t_node *node)
+void move_to_b(t_push_swap *ps, t_node *node)
 {
-	while (ps->a->head->val != node->val)
-		ra(ps);
-	pb(ps);
-}
+	int	ind;
 
-void move_rb(t_push_swap *ps, t_node *node)
-{
-	while (ps->a->tail->val != node->val)
-	{
-		rra(ps);
-	}
-	rb(ps);
+	ind = t_node_get_curr_index(ps->a, node);
+	while (ps->a->head->index != node->index)
+		ind * 2 >= ps->a->size + 1 ? rra(ps) : ra(ps);
+	pb(ps);
 }
 
 void split_stack(t_push_swap *ps, t_stack *a)
@@ -52,7 +46,7 @@ void split_stack(t_push_swap *ps, t_stack *a)
 	i = 0;
 	while (++i < a->size + 1 && a->size > 2)
 	{
-		tmp->val < median ?	move_pb(ps, tmp) : 0;
+		tmp->val < median ?	move_to_b(ps, tmp) : 0;
 		tmp = tmp_next;
 		tmp_next = tmp->next;
 	}
