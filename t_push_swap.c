@@ -4,7 +4,7 @@ t_push_swap		*t_push_swap_new(void)
 {
 	t_push_swap	*ps;
 
-	ps = (t_push_swap *)malloc(sizeof(ps));
+	ps = (t_push_swap *)malloc(sizeof(t_push_swap));
 	ps->a = t_stack_new();
 	ps->b = t_stack_new();
 	ps->counter = 0;

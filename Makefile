@@ -18,7 +18,10 @@ SOURCES = main.c \
 		quick_sort.c \
 		bubble_sort.c \
 		commands.c \
-		random_number.c
+		random_number.c \
+		t_node.c \
+		stack_from_int_arr.c \
+		median.c
 
 HEAD = ./src/filler.h
 OBJECTS = $(SOURCES:%.c=%.o)

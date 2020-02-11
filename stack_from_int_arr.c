@@ -17,8 +17,8 @@ void		t_stack_get_sort_index(t_stack *stack)
 		origin->index;
 		origin->sort_index = i++;
 		node = node->next;
-	}
-	t_stack_free(sorted);
+	}	
+	t_stack_free(sorted);	
 }
 
 
@@ -67,7 +67,7 @@ t_push_swap	*t_push_swap_get_stack_from_arr(int *arr, int size)
 		t_stack_append(ps->a, t_node_new(arr[i]));
 		ps->a->tail->index = ps->a->size - 1;
 		i++;
-	}
+	}	
 	t_stack_get_sort_index(ps->a);
 	//t_stack_get_eval(ps->a);
 	return (ps);

@@ -42,9 +42,11 @@ t_node *t_node_get_min_moves(t_push_swap *ps)
 	int 	min = 999999999;
 	t_node	*temp = ps->b->head->next;
 	t_node	*node_min = ps->b->head;
-	int i = -1;
+	int		i;
+		
 	count_moves(ps->a, ps->b, node_min);
-	while (++i < ps->b->size - 1)
+	i = 0;
+	while (++i < ps->b->size)
 	{
 		count_moves(ps->a, ps->b, temp);
 		if (temp->eval->moves < node_min->eval->moves)
@@ -86,16 +88,13 @@ int		main()
 	int *a = get_random_range(-100, 5400, size);
 	int i;
 
-
-	ps = t_push_swap_get_stack_from_arr(a, size);
-	exit(1);
-
+	
+	ps = t_push_swap_get_stack_from_arr(a, size);	
+	t_push_swap_print(ps);
 	i = 0;
 	while (!t_stack_is_sorted_ascending(ps->a) && ps->a->size != 2)
 		split_stack(ps, ps->a);
 	!t_stack_is_sorted_ascending(ps->a) ? sa(ps) : 0;
-	t_push_swap_print(ps);
-
 	int prev = 0;
 	while (ps->b->size)
 	{

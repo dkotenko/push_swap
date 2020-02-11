@@ -167,9 +167,13 @@ void	t_stack_free(t_stack *stack)
 	node_next = node->next;
 	while (i < stack->size)
 	{
-		free(node);
-		node = node_next;
-		node_next = node->next;
+		t_node_free(node);
+		if (i < stack->size - 1)
+		{
+			node = node_next;
+			node_next = node->next;
+			node->val;
+		}
 		i++;
 	}
 }
