@@ -71,7 +71,7 @@ void		move_stack_b_to_stack_a(t_push_swap *ps)
 	{
 		ind * 2 >= ps->b->size ? rrb(ps) : rb(ps);
 	}
-	while (ps->a->head->sort_index != next_node->sort_index)
+	while (ps->a->tail->sort_index != next_node->sort_index)
 	{
 		next_ind * 2 >= ps->b->size ? rra(ps) : ra(ps);
 	}
@@ -84,33 +84,44 @@ int		main()
 {
 	t_push_swap *ps;
 
-	int size = 6;
-	int *a = get_random_range(-100, 5400, size);
+	int size = 3;
+	//int *a = get_random_range(-100, 5400, size);
 	int i;
 
-	
-	ps = t_push_swap_get_stack_from_arr(a, size);	
+	int a[] = {-16, 4689, 4437};
+	ps = t_push_swap_get_stack_from_arr(a, size);
 	t_push_swap_print(ps);
+	if (t_stack_is_sorted_ascending(ps->a))
+	{
+		printf("already ascending\n");
+		return (0);
+	}
 	i = 0;
 	while (!t_stack_is_sorted_ascending(ps->a) && ps->a->size != 2)
+	{
 		split_stack(ps, ps->a);
+		t_push_swap_print(ps);
+	}
+
 	!t_stack_is_sorted_ascending(ps->a) ? sa(ps) : 0;
+	t_push_swap_print(ps);
+
+
 	int prev = 0;
 	while (ps->b->size)
 	{
 		move_stack_b_to_stack_a(ps);
-		printf("%d ", ps->counter - prev);
 		prev = ps->counter;
 	}
 	printf("\n");
 	int ind = t_node_get_curr_index(ps->a, t_node_get_by_sort_index(ps->a, 0));
+	t_push_swap_print(ps);
 	while (ps->a->head->sort_index)
 	{
 		ind * 2 >= ps->a->size ? rra(ps) : ra(ps);
 	}
-	if (t_stack_is_sorted_ascending(ps->a))
-		t_push_swap_print(ps);
-	else
+	t_push_swap_print(ps);
+	if (!t_stack_is_sorted_ascending(ps->a))
 		printf("WRONG ORDER\n");
 	return (0);
 }
