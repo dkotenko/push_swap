@@ -185,4 +185,23 @@ void	t_stack_free(t_stack *stack)
 	}
 }
 
+t_stack		*t_stack_copy(t_stack *stack)
+{
+	t_stack	*new;
+	int 	i;
+	t_node 	*node;
+
+	i = 0;
+	new = t_stack_new();
+	node = stack->head;
+	while (i < stack->size)
+	{
+		t_stack_append(new, t_node_new(node->val));
+		new->tail->index = node->index;
+		node = node->next;
+		i++;
+	}
+	return (new);
+}
+
 

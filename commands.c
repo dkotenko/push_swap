@@ -1,11 +1,18 @@
 #include "push_swap.h"
 
+void	t_node_swap(t_node *a, t_node *b)
+{
+	swap(&a->val, &b->val);
+	swap(&a->index, &b->index);
+	swap(&a->sort_index, &b->sort_index);
+}
+
 int		sa(t_push_swap *ps)
 {
 	ps->counter++;
 	if (ps->a->size > 1)
 	{
-		swap(&ps->a->head->val, &ps->a->head->next->val);
+		t_node_swap(ps->a->head, ps->a->head->next);
 		return (1);
 	}
 	return (0);
@@ -16,7 +23,7 @@ int		sb(t_push_swap *ps)
 	ps->counter++;
 	if (ps->b->size > 1)
 	{
-		swap(&ps->b->head->val, &ps->b->head->next->val);		
+		t_node_swap(ps->b->head, ps->b->head->next);
 		return (1);
 	}
 	return (0);

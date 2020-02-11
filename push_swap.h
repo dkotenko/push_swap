@@ -58,7 +58,11 @@ void	t_stack_free(t_stack *stack);
 t_node		*t_node_get_by_sort_index(t_stack *stack, int index);
 t_node		*t_node_get_by_index(t_stack *stack, int index);
 int 		t_node_get_curr_index(t_stack *stack, t_node *node);
-
+int		*get_random_range(int lower, int upper, int size);
+t_node *t_node_get_node_next_sort_index(t_stack *stack, int index);
+void split_stack(t_push_swap *ps, t_stack *a);
+t_stack		*t_stack_copy(t_stack *stack);
+t_push_swap	*t_push_swap_get_stack_from_arr(int *arr, int size);
 
 /*
  *	t_push_swap

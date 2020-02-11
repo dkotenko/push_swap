@@ -18,7 +18,7 @@ SOURCES = main.c \
 		quick_sort.c \
 		bubble_sort.c \
 		commands.c \
-		t_node.c
+		random_number.c
 
 HEAD = ./src/filler.h
 OBJECTS = $(SOURCES:%.c=%.o)

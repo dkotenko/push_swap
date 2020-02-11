@@ -6,18 +6,24 @@
   
 // Generates and prints 'count' random 
 // numbers in range [lower, upper]. 
-void printRandoms(int lower, int upper,  
-                             int count) 
-{ 
-    int i; 
-    for (i = 0; i < count; i++) { 
-        int num = (rand() % 
-           (upper - lower + 1)) + lower; 
-        printf("%d ", num); 
-    } 
-} 
+int		*get_random_range(int lower, int upper, int size)
+{
+	int i;
+	int *range;
+
+	srand(time(0));
+	range = (int *)malloc(sizeof(int) * size);
+	i = 0;
+	while (i < size)
+	{
+		range[i++] = rand() % (upper - lower + 1) + lower;
+	}
+	return (range);
+}
+
   
-// Driver code 
+// Driver code
+/*
 int main() 
 { 
     int lower = 5, upper = 7, count = 1; 
@@ -29,4 +35,4 @@ int main()
     printRandoms(lower, upper, count); 
   
     return 0; 
-} 
+} */
