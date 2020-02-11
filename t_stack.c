@@ -139,24 +139,13 @@ t_node	*t_stack_pop_head(t_stack *list)
 	return (node);
 }
 
-t_node		*t_node_new(int data)
-{
-	t_node	*new;
-
-	new = (t_node *)malloc(sizeof(t_node));
-	new->val = data;
-	new->prev = NULL;
-	new->next = NULL;
-	new->index = -1;
-	new->sort_index = -1;
-	return (new);
-}
-
 void	t_stack_print(t_stack *list)
 {
 	int	i;
 	t_node *tmp;
 
+	if (!list->size)
+		return ;
 	i = -1;
 	tmp = list->head;
 	while (++i < list->size)

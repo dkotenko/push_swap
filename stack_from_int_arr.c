@@ -21,6 +21,40 @@ void		t_stack_get_sort_index(t_stack *stack)
 	t_stack_free(sorted);
 }
 
+
+void	t_stack_index_eval(t_stack *stack)
+{
+	int i;
+	int	eval;
+	t_node *node;
+
+	node = stack->head;
+	i = -1;
+	eval = 0;
+	while (++i < stack->size)
+	{
+		if (node->prev->index == node->index + 1)
+			eval++;
+		node = node->next;
+	}
+}
+
+void	t_stack_order_eval(t_stack *stack)
+{
+	int i;
+	t_node *node;
+
+	node = stack->head;
+	i = -1;
+	while (++i < stack->size)
+	{
+		if (node->prev->val <= node->val)
+			node->eval->ord_by_val = true;
+		node = node->next;
+	}
+}
+
+
 t_push_swap	*t_push_swap_get_stack_from_arr(int *arr, int size)
 {
 	int		i;
@@ -35,6 +69,7 @@ t_push_swap	*t_push_swap_get_stack_from_arr(int *arr, int size)
 		i++;
 	}
 	t_stack_get_sort_index(ps->a);
+	//t_stack_get_eval(ps->a);
 	return (ps);
 }
 

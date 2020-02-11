@@ -3,16 +3,25 @@
 
 # include <stdlib.h>
 # include <stdio.h>
+# include <stdbool.h>
 
 # define EMPTY -1
+
+typedef struct		g_eval
+{
+	bool			ord_by_ind;
+	bool			ord_by_val;
+	int 			moves;
+}					t_eval;
 
 typedef struct		g_node
 {
 	struct g_node	*next;
-	struct g_node	*prev;	
+	struct g_node	*prev;
 	int				val;
 	int 			sort_index;
 	int 			index;
+	t_eval			*eval;
 }					t_node;
 
 typedef	struct	g_stack

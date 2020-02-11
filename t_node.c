@@ -87,3 +87,23 @@ t_node *t_node_get_node_next_sort_index(t_stack *stack, int index)
 	}
 	return (next_node);
 }
+
+t_node		*t_node_new(int data)
+{
+	t_node	*new;
+
+	new = (t_node *)malloc(sizeof(t_node));
+	new->val = data;
+	new->prev = NULL;
+	new->next = NULL;
+	new->index = -1;
+	new->sort_index = -1;
+	new->eval = (t_eval *)malloc(sizeof(t_eval));
+	return (new);
+}
+
+void		*t_node_free(t_node *node)
+{
+	free(node->eval);
+	free(node);
+}
