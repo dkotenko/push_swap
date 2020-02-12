@@ -96,9 +96,9 @@ t_eval		*t_eval_new(void)
 	t_eval	*eval;
 
 	eval = (t_eval *)malloc(sizeof(t_eval));
-	eval->moves = -1;
-	eval->ord_by_ind = -1;
-	eval->ord_by_val = -1;
+	eval->moves = 0;
+	eval->ord_by_ind = false;
+	eval->ord_by_val = false;
 	return (eval);
 }
 

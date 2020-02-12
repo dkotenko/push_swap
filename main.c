@@ -33,7 +33,7 @@ t_node *count_moves(t_stack *a, t_stack *b, t_node *node)
 	next_ind = t_node_get_curr_index(a, next_node);
 	node_moves = ind * 2 >= b->size + 1 ? b->size - ind : ind;
 	next_node_moves = next_ind * 2 >= a->size + 1 ? a->size - next_ind : next_ind;
-	node->eval->moves = node_moves + next_node_moves;
+	node->eval->moves = node_moves + next_node_moves + 1;
 	return (node);
 }
 
