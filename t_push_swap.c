@@ -20,3 +20,10 @@ void			t_push_swap_print(t_push_swap *ps)
 	t_stack_print(ps->b);
 	printf("MOVES NUMBER: %d\n", ps->counter);
 }
+
+void			t_push_swap_free(t_push_swap *ps)
+{
+	t_stack_free(ps->a);
+	t_stack_free(ps->b);
+	free(ps);
+}

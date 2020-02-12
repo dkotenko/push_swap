@@ -76,11 +76,13 @@ t_stack		*t_stack_copy(t_stack *stack);
 t_push_swap	*t_push_swap_get_stack_from_arr(int *arr, int size);
 void		t_node_free(t_node *node);
 
+
 /*
  *	t_push_swap
  */
 void			t_push_swap_print(t_push_swap *ps);
 t_push_swap		*t_push_swap_new(void);
+void			t_push_swap_free(t_push_swap *ps);
 
 /*
  * commands

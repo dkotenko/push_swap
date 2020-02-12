@@ -5,11 +5,7 @@
 # include <unistd.h>
 # include "libft/includes/libft.h"
 # include "libft/includes/get_next_line.h"
+# include "libft/includes/dlist.h"
 
-typedef struct			g_commands
-{
-	struct g_commands	*comm;
-	int			 		size;
-}						t_commands;
 
 #endif
