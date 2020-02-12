@@ -4,6 +4,8 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <stdbool.h>
+# include "libft/includes/libft.h"
+# include "libft/includes/get_next_line.h"
 
 # define EMPTY -1
 
