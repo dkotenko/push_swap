@@ -73,9 +73,14 @@ void		move_stack_b_to_stack_a(t_push_swap *ps)
 	}
 	while (ps->a->head->sort_index != next_node->sort_index)
 	{
-		next_ind * 2 >= ps->b->size ? rra(ps) : ra(ps);
+		next_ind * 2 >= ps->a->size ? rra(ps) : ra(ps);
 	}
 	pa(ps);
+}
+
+static int	handle_push_swap(t_push_swap *ps)
+{
+	return (0);
 }
 
 
@@ -84,13 +89,14 @@ int		main()
 {
 	t_push_swap *ps;
 
-	int size = 3;
+	int size = 500;
 	int *a = get_random_range(-100, 5400, size);
-	//int a[] = {3109, 4904, 1449};
+	//int a[] = {2528, 2005, 2700};
 	int i;
 
 	
 	ps = t_push_swap_get_stack_from_arr(a, size);
+
 	t_push_swap_print(ps);
 	if (t_stack_is_sorted_ascending(ps->a))
 	{
@@ -103,10 +109,9 @@ int		main()
 		split_stack(ps, ps->a);
 	}
 
-	!t_stack_is_sorted_ascending(ps->a) ? sa(ps) : 0;
+	//!t_stack_is_sorted_ascending(ps->a) ? sa(ps) : 0;
 	printf("after splitting\n");
 	t_push_swap_print(ps);
-
 
 	int prev = 0;
 	while (ps->b->size)
@@ -124,6 +129,8 @@ int		main()
 	t_push_swap_print(ps);
 	if (!t_stack_is_sorted_ascending(ps->a))
 		printf("WRONG ORDER\n");
+	printf("%d %d %d\n", ps->a->head->eval->moves,
+		   ps->a->head->eval->ord_by_ind, ps->a->head->eval->ord_by_val);
 	return (0);
 }
 

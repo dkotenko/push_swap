@@ -81,9 +81,8 @@ t_node *t_node_get_node_next_sort_index(t_stack *stack, int index)
 	{
 		if (node->sort_index > index)
 		{
-			next_node = next_node ? next_node : node;
-			next_node = next_node->sort_index > node->sort_index ? \
-				node : next_node;
+			if (!next_node || node->sort_index < next_node->sort_index)
+				next_node = node;
 		}
 		node = node->next;
 	}

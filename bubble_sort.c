@@ -34,11 +34,9 @@ void		t_stack_bubble_sort(t_stack *stack)
 	int 	j;
 
 	node = stack->head;
-	sorted = 1;
 	i = -1;
 	while (++i < stack->size && sorted)
 	{
-		sorted = 0;
 		j = i;
 		next_node = node->next;
 		while (++j < stack->size)
@@ -47,7 +45,6 @@ void		t_stack_bubble_sort(t_stack *stack)
 			{
 				swap(&next_node->val, &node->val);
 				swap(&next_node->index, &node->index);
-				sorted = 1;
 			}
 			next_node = next_node->next;
 		}
