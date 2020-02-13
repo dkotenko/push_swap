@@ -1,5 +1,4 @@
-#include "checker.h"
-#include "../push_swap.h"
+#include "push_swap.h"
 
 void	handle_command(char *command, t_push_swap *ps)
 {
@@ -163,7 +162,7 @@ int		main(int ac, char **av)
 		list = t_dlist_new();
 		handle_instructions(list);
 		execute_commands(ps, list);
-		t_stack_is_sorted_ascending(ps->a) ?
+		t_stack_is_sorted_ascending(ps->a) && !ps->b->size ?
 			write(2, "OK\n", 3) : write(2, "KO\n", 3);
 		exit(1);
 	}

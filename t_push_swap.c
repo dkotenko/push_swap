@@ -16,8 +16,11 @@ t_push_swap		*t_push_swap_new(void)
 
 void			t_push_swap_print(t_push_swap *ps)
 {
+	write(1, "STACK A: ", 8);
 	t_stack_print(ps->a);
+	write(1, "STACK B: ", 8);
 	t_stack_print(ps->b);
+	write(1, "\n", 1);
 	printf("MOVES NUMBER: %d\n", ps->counter);
 }
 

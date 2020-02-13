@@ -56,11 +56,8 @@ int		pb(t_push_swap *ps)
 
 int		t_stack_shift_down(t_stack *stack)
 {
-	int	i;
-
 	if (!stack->size)
-		return (0);
-	
+		return (0);	
 	stack->head = stack->tail;
 	stack->tail = stack->tail->prev;	
 	return (1);
@@ -68,8 +65,6 @@ int		t_stack_shift_down(t_stack *stack)
 
 int		t_stack_shift_up(t_stack *stack)
 {
-	int	i;
-
 	if (!stack->size)
 		return (0);	
 	stack->tail = stack->head;
@@ -79,7 +74,7 @@ int		t_stack_shift_up(t_stack *stack)
 	
 
 /*
- * Shift up 
+ * Shift up a
  */
 
 int		ra(t_push_swap *ps)
@@ -90,7 +85,7 @@ int		ra(t_push_swap *ps)
 }
 
 /*
- * Shift up 
+ * Shift up b
  */
 int		rb(t_push_swap *ps)
 {
@@ -100,7 +95,7 @@ int		rb(t_push_swap *ps)
 }
 
 /*
- * Shift up 
+ * Shift up both stacks
  */
 int		rr(t_push_swap *ps)
 {
@@ -110,7 +105,7 @@ int		rr(t_push_swap *ps)
 }
 
 /*
- * Shift down
+ * Shift down a
  */
 int		rra(t_push_swap *ps)
 {
@@ -120,7 +115,7 @@ int		rra(t_push_swap *ps)
 }
 
 /*
- * Shift down
+ * Shift down b
  */
 int		rrb(t_push_swap *ps)
 {
@@ -130,10 +125,11 @@ int		rrb(t_push_swap *ps)
 }
 
 /*
- * Shift down
+ * Shift down both stacks
  */
 int		rrr(t_push_swap *ps)
 {
 	rra(ps);
 	rrb(ps);
+	return (1);
 }

@@ -21,8 +21,7 @@ t_node *count_moves(t_stack *a, t_stack *b, t_node *node)
 }
 
 t_node *t_node_get_min_moves(t_push_swap *ps)
-{
-	int 	min = 999999999;
+{	
 	t_node	*temp = ps->b->head->next;
 	t_node	*node_min = ps->b->head;
 	int		i;
@@ -61,50 +60,41 @@ void		move_stack_b_to_stack_a(t_push_swap *ps)
 	pa(ps);
 }
 
-static int	handle_push_swap(t_push_swap *ps)
-{
-	return (0);
-}
-
-
-
 int		main()
 {
 	t_push_swap *ps;
 
-	int size = 500;
-	int *a = get_random_range(-100, 5400, size);
-	//int a[] = {2528, 2005, 2700};
-	int i;
-
-	
+	int size = 100;
+	int *a = get_random_range(-100, 100, size);
+	//int a[] = {-6, -45, 58, 13, -69, -11, 92, -14, 92, 69, -34, -67, 94, -84, 28, -56, -40, 36, -31, -16};
+	//int a[] = {63, 45, -51, -38, 48, -47, 87, 55, -88, -23, -28, -80, 57, 7, -52, 92, -92, 92, 61, 29, -49, 59, 29, -78, 70, 27, -33, -63, -3, -61, -1, -91, 34, 48, -29, -18, 52, -42, -64, 64, -15, -42, 34, -58, 65, 83, 84, 23, 24, -6, -49, 25, -48, 31, 48, -79, -43, -86, -92, 4, -97, 7, 14, 38, -95, 85, -81, 57, 93, -95, -30, -22, -37, -97, -30, 78, 86, -97, -50, -40, -3, 1, 35, 49, 82, -18, 20, -62, -53, 28, -7, -50, 85, -94, 88, 90, 91, 57, 46, 34}; 
 	ps = t_push_swap_get_stack_from_arr(a, size);
 
+	printf("START\n");
 	t_push_swap_print(ps);
 	if (t_stack_is_sorted_ascending(ps->a))
 	{
 		printf("already ascending\n");
 		return (0);
-	}
-	i = 0;
-	while (!t_stack_is_sorted_ascending(ps->a) && ps->a->size != 2)
+	}		
+	while (!t_stack_is_sorted_ascending(ps->a) && ps->a->size > 2)
 	{
 		split_stack(ps, ps->a);
+		//t_push_swap_print(ps);		
 	}
-
-	//!t_stack_is_sorted_ascending(ps->a) ? sa(ps) : 0;
-	printf("after splitting\n");
 	t_push_swap_print(ps);
-
-	int prev = 0;
+	//printf("after splitting\n");
+	//t_push_swap_print(ps);
+	
 	while (ps->b->size)
-	{
+	{	
 		move_stack_b_to_stack_a(ps);
-		prev = ps->counter;
+		//t_push_swap_print(ps);
 	}
+		
 	printf("\n");
 	int ind = t_node_get_curr_index(ps->a, t_node_get_by_sort_index(ps->a, 0));
-	t_push_swap_print(ps);
+	//t_push_swap_print(ps);
 	while (ps->a->head->sort_index)
 	{
 		ind * 2 >= ps->a->size ? rra(ps) : ra(ps);
@@ -112,8 +102,8 @@ int		main()
 	t_push_swap_print(ps);
 	if (!t_stack_is_sorted_ascending(ps->a))
 		printf("WRONG ORDER\n");
-	printf("%d %d %d\n", ps->a->head->eval->moves,
-		   ps->a->head->eval->ord_by_ind, ps->a->head->eval->ord_by_val);
+	//printf("%d %d %d\n", ps->a->head->eval->moves,
+	//	   ps->a->head->eval->ord_by_ind, ps->a->head->eval->ord_by_val);
 	return (0);
 }
 

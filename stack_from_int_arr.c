@@ -14,8 +14,7 @@ void		t_stack_get_sort_index(t_stack *stack)
 	node = sorted->head;
 	while (i < stack->size)
 	{
-		origin = t_node_get_by_index(stack, node->index);
-		origin->index;
+		origin = t_node_get_by_index(stack, node->index);		
 		origin->sort_index = i++;
 		node = node->next;
 	}	

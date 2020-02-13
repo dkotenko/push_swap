@@ -128,17 +128,6 @@ void	t_stack_swap(t_stack *list)
 	swap(&list->head->val, &list->head->next->val);
 }
 
-t_node	*t_stack_pop_tail(t_stack *list)
-{
-	t_node *node;	
-}
-
-t_node	*t_stack_pop_head(t_stack *list)
-{
-	t_node *node;
-	return (node);
-}
-
 void	t_stack_print(t_stack *list)
 {
 	int	i;
@@ -150,7 +139,7 @@ void	t_stack_print(t_stack *list)
 	tmp = list->head;
 	while (++i < list->size)
 	{
-		printf("%d ", tmp->val);
+		printf("%d, ", tmp->val);
 		tmp = tmp->next;
 	}
 	printf("\n");
@@ -171,8 +160,7 @@ void	t_stack_free(t_stack *stack)
 		if (i < stack->size - 1)
 		{
 			node = node_next;
-			node_next = node->next;
-			node->val;
+			node_next = node->next;			
 		}
 		i++;
 	}
@@ -203,7 +191,7 @@ int		t_stack_is_sorted_ascending(t_stack *stack)
 	t_node	*tmp;
 
 	i = 0;
-	tmp = stack->head;
+	tmp = stack->head;	
 	while (i < stack->size - 1)
 	{
 		if (!tmp->next)

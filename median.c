@@ -1,5 +1,18 @@
 #include "push_swap.h"
 
+void	print_arr(int *arr, int size)
+{
+	int	i;
+
+	i = 0;
+	printf("int arr: ");
+	while (i < size)
+	{
+		printf("%d-", arr[i++]);
+	}
+	printf("\n");
+}
+
 int		get_median(t_stack *stack)
 {
 	int *arr;
@@ -9,14 +22,16 @@ int		get_median(t_stack *stack)
 
 	i = 0;
 	tmp = stack->head;
-	arr = (int *)malloc(sizeof(int) * stack->size);
+	arr = (int *)malloc(sizeof(int) * stack->size);	
 	while (i < stack->size)
 	{
 		arr[i++] = tmp->val;
 		tmp = tmp->next;
-	}
-	bubble_sort(arr, stack->size);
-	median = arr[stack->size / 2];
+	}	
+	bubble_sort(arr, stack->size);	
+	median = arr[stack->size / 2];	
+	
+	
 	free(arr);
 	return (median);
 }
@@ -45,9 +60,9 @@ void split_stack(t_push_swap *ps, t_stack *a)
 	tmp_next = tmp->next;
 	i = 0;
 	while (++i < a->size + 1 && a->size > 2)
-	{
-		tmp->val < median ?	move_to_b(ps, tmp) : 0;
+	{		
+		tmp->val <= median ? move_to_b(ps, tmp) : 0;
 		tmp = tmp_next;
-		tmp_next = tmp->next;
+		tmp_next = tmp->next;		
 	}
 }
