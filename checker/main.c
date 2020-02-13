@@ -44,7 +44,8 @@ int 			is_valid_instruction(char *s)
 		if (len == 2 && ((s[1] == 'a' || s[1] == 'b') ||
 				(!ft_strcmp(s, "rr") || !ft_strcmp(s, "ss"))))
 			return (1);
-		if (len == 3 && s[0] == 'r' && s[1] == 'r' && ft_strchr("abr", s[2]))
+		if (len == 3 && s[0] == 'r' && s[1] == 'r' &&
+				ft_strchr("abr", s[2]))
 			return (1);
 	}
 	return (0);
@@ -108,7 +109,7 @@ void		handle_splitted(t_push_swap *ps, char **arr)
 	i = -1;
 	while (arr[++i])
 	{
-		if (is_valid_parameter(arr[i]))
+		if (is_valid_parameter(ps, arr[i]))
 		{
 			param = ft_atoi(arr[i]);
 			t_stack_append(ps->a, t_node_new(param));
@@ -129,12 +130,24 @@ void		handle_parameters(int ac, char **av, t_push_swap *ps)
 			splitted = ft_strsplit(av[ac], ' ');
 			handle_splitted(ps, splitted);
 		}
-		else if (is_valid_parameter(av[ac]))
+		else if (is_valid_parameter(av[ac], ps))
 		{
 			param = ft_atoi(av[ac]);
 			t_stack_append(ps->a, t_node_new(param));
 		}
 		ac--;
+	}
+}
+
+void				execute_commands(t_push_swap *ps, t_dlist *list)
+{
+	t_dlist_node	*node;
+
+	node = list->head;
+	while (node)
+	{
+		handle_command((char *)node->data, ps);
+		node = node->next;
 	}
 }
 
@@ -149,7 +162,10 @@ int		main(int ac, char **av)
 		handle_parameters(ac, av, ps);
 		list = t_dlist_new();
 		handle_instructions(list);
-		t_push_swap_free(ps);
+		execute_commands(ps, list);
+		t_stack_is_sorted_ascending(ps->a) ?
+			write(2, "OK\n", 3) : write(2, "KO\n", 3);
+		exit(1);
 	}
 	return (0);
 }

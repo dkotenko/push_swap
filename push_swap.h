@@ -75,6 +75,7 @@ void split_stack(t_push_swap *ps, t_stack *a);
 t_stack		*t_stack_copy(t_stack *stack);
 t_push_swap	*t_push_swap_get_stack_from_arr(int *arr, int size);
 void		t_node_free(t_node *node);
+int		t_stack_is_sorted_ascending(t_stack *stack);
 
 
 /*

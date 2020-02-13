@@ -1,24 +1,7 @@
 #include "push_swap.h"
 
 
-int		t_stack_is_sorted_ascending(t_stack *stack)
-{
-	int		i;
-	t_node	*tmp;
 
-	i = 0;
-	tmp = stack->head;
-	while (i < stack->size - 1)
-	{
-		if (!tmp->next)
-			break ;		
-		if (tmp->val > tmp->next->val)
-			return (0);		
-		i++;
-		tmp = tmp->next;		
-	}	
-	return (1);
-}
 
 t_node *count_moves(t_stack *a, t_stack *b, t_node *node)
 {
