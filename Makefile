@@ -24,10 +24,10 @@ SOURCES = swap.c \
 		handle_parameters.c
 
 PUSH_SWAP_C = push_swap.c
-CHECKER_C = = checker.c
+CHECKER_C = checker.c
 
-SRCDIR = ./src/
-OBJDIR = ./bin/
+SRCDIR = src/
+OBJDIR = bin/
 
 OBJECTS = $(SOURCES:%.c=%.o)
 OBJ = $(addprefix $(OBJDIR), $(OBJECTS))
@@ -41,23 +41,20 @@ PUSH_SWAP = push_swap
 CHECKER = checker
 
 COMP_LIB = make -C libft/
-LIB = libft/libft.a
 
 INCLUDES = ./push_swap.h ./libft/includes/libft.h
 
-
-
 all: libft $(PUSH_SWAP) $(CHECKER)
 
-$(PUSH_SWAP): $(PUSH_SWAP_OBJ) $(OBJ)
-	$(CC) $(FLAGS) -o $@ $(PUSH_SWAP) $(PUSH_SWAP_OBJ) $(OBJ) -L./libft -lft
+$(PUSH_SWAP): libft $(PUSH_SWAP_OBJ) $(OBJ)
+	$(CC) $(FLAGS) -o $(PUSH_SWAP) $(PUSH_SWAP_OBJ) $(OBJ) -L./libft -lft
 
-$(CHECKER): $(CHECKER_OBJ) $(OBJ)
-	$(CC) $(FLAGS) -o $@ $(CHECKER) $(CHECKER_OBJ) $(OBJ) $(LIB)
+$(CHECKER): libft $(CHECKER_OBJ) $(OBJ)
+	$(CC) $(FLAGS) -o $(CHECKER) $(CHECKER_OBJ) $(OBJ) -L./libft -lft
 
 $(OBJDIR)%.o: $(SRCDIR)%.c $(INCLUDES)
-	@/bin/mkdir -p $(OBJDIR)
-	$(CC) $(FLAGS) -I./includes -I./libft/includes -c $< -o $@
+		@/bin/mkdir -p $(OBJDIR)
+		@gcc $(FLAGS) -I./includes -I./libft/includes -c $< -o $@
 
 libft:
 	$(COMP_LIB)
