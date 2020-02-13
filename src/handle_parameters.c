@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int			is_duplicate(t_push_swap *ps, int param)
+static int	is_duplicate(t_push_swap *ps, int param)
 {
 	int		i;
 	t_node	*node;
@@ -9,7 +9,7 @@ int			is_duplicate(t_push_swap *ps, int param)
 	node = ps->a->head;
 	while (++i < ps->a->size)
 	{
-		if (node->val = param)
+		if (node->val == param)
 			return (1);
 		node = node->next;
 	}
@@ -21,14 +21,14 @@ static int	is_integer(char *s, int n)
 	size_t	len;
 
 	len = ft_strlen(s);
-	if ((s[0] != '-' && !ft_isdigit(s[0])) || len != ft_ilen(n))
+	if ((s[0] != '-' && !ft_isdigit(s[0])) || (int)len != ft_ilen(n))
 		return (0);
 	return (1);
 }
 
-int 	is_valid_parameter(t_push_swap *ps, char *s)
+static int	is_valid_parameter(t_push_swap *ps, char *s)
 {
-	int param;
+	int		param;
 
 	param = ft_atoi(s);
 	if (!is_integer(s, param))
@@ -38,7 +38,7 @@ int 	is_valid_parameter(t_push_swap *ps, char *s)
 	return (1);
 }
 
-void		handle_splitted(t_push_swap *ps, char **arr)
+static void	handle_splitted(t_push_swap *ps, char **arr)
 {
 	int 	i;
 	int 	param;
@@ -57,23 +57,29 @@ void		handle_splitted(t_push_swap *ps, char **arr)
 
 void		handle_parameters(int ac, char **av, t_push_swap *ps)
 {
-	char	*splitted;
+	char	**splitted;
 	int 	param;
-	int		i;
+	int 	i;
 
 	i = 0;
-	while (++i < 0)
+
+	while (++i < ac)
 	{
 		if (ft_strchr(av[i], ' '))
 		{
 			splitted = ft_strsplit(av[i], ' ');
 			handle_splitted(ps, splitted);
 		}
-		else if (is_valid_parameter(av[i], ps))
+		else if (is_valid_parameter(ps, av[i]))
 		{
 			param = ft_atoi(av[i]);
 			t_stack_append(ps->a, t_node_new(param));
 		}
-		ac--;
 	}
+}
+
+void	handle_error()
+{
+	write(2, "Error\n", 6);
+	exit(1);
 }

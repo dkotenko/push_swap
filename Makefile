@@ -11,8 +11,7 @@
 # **************************************************************************** #
 
 
-SOURCES = main.c \
-		swap.c \
+SOURCES = swap.c \
 		t_push_swap.c \
 		t_stack.c \
 		quick_sort.c \
@@ -21,33 +20,55 @@ SOURCES = main.c \
 		random_number.c \
 		t_node.c \
 		stack_from_int_arr.c \
-		median.c
+		median.c \
+		handle_parameters.c
 
-HEAD = ./src/filler.h
+PUSH_SWAP_C = push_swap.c
+CHECKER_C = = checker.c
+
+SRCDIR = ./src/
+OBJDIR = ./bin/
+
 OBJECTS = $(SOURCES:%.c=%.o)
+OBJ = $(addprefix $(OBJDIR), $(OBJECTS))
+PUSH_SWAP_OBJ = $(addprefix $(OBJDIR), $(PUSH_SWAP_C:%.c=%.o))
+CHECKER_OBJ = $(addprefix $(OBJDIR), $(CHECKER_C:%.c=%.o))
+
 CC = gcc 
 FLAGS = -Wall -Wextra -Werror
-LEMIN = push_swap
+
+PUSH_SWAP = push_swap
+CHECKER = checker
+
 COMP_LIB = make -C libft/
-INCLUDES = ./push_swap.h
 LIB = libft/libft.a
 
-all: $(LEMIN)
+INCLUDES = ./push_swap.h ./libft/includes/libft.h
 
-$(LEMIN): $(OBJECTS)
-	$(CC) $(FLAGS) -o $@  $(OBJECTS)
 
-%.o: %.c $(INCLUDES) $(LIB)
-	$(CC) $(FLAGS) -I./ -I./libft/ -c $< -o $@
+
+all: libft $(PUSH_SWAP) $(CHECKER)
+
+$(PUSH_SWAP): $(PUSH_SWAP_OBJ) $(OBJ)
+	$(CC) $(FLAGS) -o $@ $(PUSH_SWAP) $(PUSH_SWAP_OBJ) $(OBJ) -L./libft -lft
+
+$(CHECKER): $(CHECKER_OBJ) $(OBJ)
+	$(CC) $(FLAGS) -o $@ $(CHECKER) $(CHECKER_OBJ) $(OBJ) $(LIB)
+
+$(OBJDIR)%.o: $(SRCDIR)%.c $(INCLUDES)
+	@/bin/mkdir -p $(OBJDIR)
+	$(CC) $(FLAGS) -I./includes -I./libft/includes -c $< -o $@
 
 libft:
 	$(COMP_LIB)
 
 clean:	
-		/bin/rm -f $(OBJECTS)
+		/bin/rm -rf $(OBJDIR)
+		make clean -C libft/
 
-fclean: clean		
-		/bin/rm -f $(LEMIN)
+fclean: clean
+		make fclean -C libft/	
+		/bin/rm -f $(PUSH_SWAP) $(CHECKER)
 
 re: fclean all
 

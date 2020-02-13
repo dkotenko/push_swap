@@ -106,6 +106,7 @@ int					rra(t_push_swap *ps);
 int					rrb(t_push_swap *ps);
 int					rrr(t_push_swap *ps);
 
+void				handle_error(void);
 int					*get_random_range(int lower, int upper, int size);
 
 #endif
