@@ -11,9 +11,10 @@
 # **************************************************************************** #
 
 
-SOURCES = swap.c \
-		t_push_swap.c \
-		t_stack.c \
+SOURCES = t_push_swap.c \
+		t_stack1.c \
+		t_stack2.c \
+		t_stack3.c \
 		quick_sort.c \
 		bubble_sort.c \
 		comm_push.c \
@@ -22,9 +23,9 @@ SOURCES = swap.c \
 		comm_shift_down.c \
 		random_number.c \
 		t_node.c \
-		stack_from_int_arr.c \
 		median.c \
-		handle_parameters.c
+		handle_parameters.c \
+		is_valid_parameter.c
 
 PUSH_SWAP_C = push_swap.c
 CHECKER_C = checker.c

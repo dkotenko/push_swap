@@ -1,8 +1,8 @@
 #include "../includes/push_swap.h"
 
-void	print_arr(int *arr, int size)
+void		print_arr(int *arr, int size)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	printf("int arr: ");
@@ -13,10 +13,10 @@ void	print_arr(int *arr, int size)
 	printf("\n");
 }
 
-int		get_median(t_stack *stack)
+int			get_median(t_stack *stack)
 {
-	int *arr;
-	int	i;
+	int		*arr;
+	int		i;
 	t_node	*tmp;
 	int		median;
 
@@ -36,9 +36,9 @@ int		get_median(t_stack *stack)
 	return (median);
 }
 
-void move_to_b(t_push_swap *ps, t_node *node)
+void		move_to_b(t_push_swap *ps, t_node *node)
 {
-	int	ind;
+	int		ind;
 
 	ind = t_node_get_curr_index(ps->a, node);
 	while (ps->a->head->index != node->index)
@@ -46,11 +46,11 @@ void move_to_b(t_push_swap *ps, t_node *node)
 	pb(ps);
 }
 
-void			handle_case_of_three(t_push_swap *ps)
+void		handle_case_of_three(t_push_swap *ps)
 {
-	int			first;
-	int			second;
-	int			third;
+	int		first;
+	int		second;
+	int		third;
 
 	if (t_stack_is_sorted_ascending(ps->a))
 		return ;
@@ -70,21 +70,21 @@ void			handle_case_of_three(t_push_swap *ps)
 	}
 }
 
-void split_stack(t_push_swap *ps, t_stack *a)
+void		split_stack(t_push_swap *ps, t_stack *a)
 {
-	int median;
-	int	i;
-	t_node *tmp;
-	t_node *tmp_next;
+	int		median;
+	int		i;
+	t_node	*tmp;
+	t_node	*tmp_next;
 
+	if (a->size == 3)
+		return (handle_case_of_three(ps));
 	median = get_median(a);
 	while (a->head->val < median)
 		pb(ps);
 	tmp = a->head;
 	tmp_next = tmp->next;
-	i = 0;
-	if (a->size == 3)
-		return (handle_case_of_three(ps));
+	i = 0;	
 	while (++i < a->size + 1 && a->size > 2)
 	{		
 		tmp->val <= median ? move_to_b(ps, tmp) : 0;

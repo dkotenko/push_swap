@@ -9,13 +9,6 @@
 
 # define EMPTY -1
 
-typedef struct		g_eval
-{
-	bool			ord_by_ind;
-	bool			ord_by_val;
-	int 			moves;
-}					t_eval;
-
 typedef struct		g_node
 {
 	struct g_node	*next;
@@ -23,7 +16,7 @@ typedef struct		g_node
 	int				val;
 	int 			sort_index;
 	int 			index;
-	t_eval			*eval;
+	int				moves;
 }					t_node;
 
 typedef	struct		g_stack
@@ -82,12 +75,10 @@ t_node				*t_node_get_by_sort_index(t_stack *stack, int index);
 t_node				*t_node_get_by_index(t_stack *stack, int index);
 int 				t_node_get_curr_index(t_stack *stack, t_node *node);
 t_node 				*t_node_get_node_next_sort_index(t_stack *stack, int index);
-void				t_node_free(t_node *node);
 
 /*
  *	t_push_swap
  */
-t_push_swap			*t_push_swap_get_stack_from_arr(int *arr, int size);
 void				t_push_swap_print(t_push_swap *ps);
 t_push_swap			*t_push_swap_new(void);
 void				t_push_swap_free(t_push_swap *ps);
@@ -110,5 +101,6 @@ int					rrr(t_push_swap *ps);
 
 void				handle_error(void);
 void				handle_parameters(int ac, char **av, t_push_swap *ps);
+int					is_valid_parameter(t_push_swap *ps, char *s);
 
 #endif

@@ -74,17 +74,6 @@ t_node *t_node_get_node_next_sort_index(t_stack *stack, int index)
 	return (next_node);
 }
 
-t_eval		*t_eval_new(void)
-{
-	t_eval	*eval;
-
-	eval = (t_eval *)malloc(sizeof(t_eval));
-	eval->moves = 0;
-	eval->ord_by_ind = false;
-	eval->ord_by_val = false;
-	return (eval);
-}
-
 t_node		*t_node_new(int data)
 {
 	t_node	*new;
@@ -95,12 +84,6 @@ t_node		*t_node_new(int data)
 	new->next = NULL;
 	new->index = -1;
 	new->sort_index = -1;
-	new->eval = t_eval_new();	
+	new->moves = 0;	
 	return (new);
-}
-
-void		t_node_free(t_node *node)
-{
-	free(node->eval);
-	free(node);
 }

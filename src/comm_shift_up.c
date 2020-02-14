@@ -1,9 +1,9 @@
 #include "../includes/push_swap.h"
 
-int		t_stack_shift_up(t_stack *stack)
+int			t_stack_shift_up(t_stack *stack)
 {
 	if (!stack->size)
-		return (0);	
+		return (0);
 	stack->tail = stack->head;
 	stack->head = stack->head->next;
 	return (1);
@@ -12,7 +12,7 @@ int		t_stack_shift_up(t_stack *stack)
 /*
  * Shift up a
  */
-int		ra(t_push_swap *ps)
+int			ra(t_push_swap *ps)
 {
 	char	*s;
 
@@ -26,7 +26,7 @@ int		ra(t_push_swap *ps)
 /*
  * Shift up b
  */
-int		rb(t_push_swap *ps)
+int			rb(t_push_swap *ps)
 {
 	char	*s;
 
@@ -40,7 +40,7 @@ int		rb(t_push_swap *ps)
 /*
  * Shift up both stacks
  */
-int		rr(t_push_swap *ps)
+int			rr(t_push_swap *ps)
 {
 	ra(ps);
 	rb(ps);

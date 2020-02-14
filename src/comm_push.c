@@ -8,7 +8,7 @@ int			pa(t_push_swap *ps)
 	t_dlist_append(ps->instr, t_dlist_node_new(s));
 	t_stack_push(ps->a, t_stack_pop(ps->b, ps->b->head));
 	ps->counter++;
-	return (1);	
+	return (1);
 }
 
 int			pb(t_push_swap *ps)
@@ -19,5 +19,5 @@ int			pb(t_push_swap *ps)
 	t_dlist_append(ps->instr, t_dlist_node_new(s));
 	t_stack_push(ps->b, t_stack_pop(ps->a, ps->a->head));
 	ps->counter++;
-	return (1);	
+	return (1);
 }

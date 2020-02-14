@@ -1,6 +1,15 @@
 #include "../includes/push_swap.h"
 
-int median_of_three(int a, int b, int c)
+void	swap(int *a, int *b)
+{
+	int	t;
+
+	t = *a;
+	*a = *b;
+	*b = t;	
+}
+
+int		median_of_three(int a, int b, int c)
 {
     if ((a > b) != (a > c)) 
         return a;

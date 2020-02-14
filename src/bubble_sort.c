@@ -1,13 +1,13 @@
 #include "../includes/push_swap.h"
 
-void    bubble_sort(int *arr, int size)
+void   		bubble_sort(int *arr, int size)
 {
-    int i;
-    int j;    
+    int 	i;
+    int 	j;
 
-    i = -1;    
+    i = -1;
     while (++i < size)
-    {        
+    {
         j = i;
         while (++j < size)
         {
