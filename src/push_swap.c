@@ -64,7 +64,7 @@ void			print_insructions_list(t_dlist *list)
 	node = list->head;
 	while (node)
 	{
-		ft_putstr((char *)node->data);
+		ft_putstr((const char *)(node->data));
 		ft_putchar('\n');
 		node = node->next;
 	}
@@ -77,10 +77,10 @@ int				main(int ac, char **av)
 
 	if (ac > 1)
 	{
-		ps = NULL;
+		ps = t_push_swap_new();
 		printf("here");
 		handle_parameters(ac, av, ps);
-		exit(0);
+
 		printf("START\n");
 		t_push_swap_print(ps);
 
@@ -91,7 +91,8 @@ int				main(int ac, char **av)
 			split_stack(ps, ps->a);
 			//t_push_swap_print(ps);		
 		}
-
+		ps->a->size == 2 &&
+		ps->a->head->sort_index > ps->a->head->next->sort_index ? sa(ps) : 0;
 		t_push_swap_print(ps);		
 		//printf("after splitting\n");
 		//t_push_swap_print(ps);
@@ -99,7 +100,7 @@ int				main(int ac, char **av)
 		while (ps->b->size)
 		{	
 			move_stack_b_to_stack_a(ps);
-			//t_push_swap_print(ps);
+			t_push_swap_print(ps);
 		}
 		
 		printf("\n");

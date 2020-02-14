@@ -6,6 +6,8 @@ static int	is_duplicate(t_push_swap *ps, int param)
 	t_node	*node;
 
 	i = -1;
+	if (!ps->a->size)
+		return (0);
 	node = ps->a->head;
 	while (++i < ps->a->size)
 	{
@@ -50,6 +52,7 @@ static void	handle_splitted(t_push_swap *ps, char **arr)
 		{
 			param = ft_atoi(arr[i]);
 			t_stack_append(ps->a, t_node_new(param));
+			ps->a->tail->index = ps->a->size - 1;
 		}
 	}
 	free_2dchararr_terminated(arr);
@@ -73,8 +76,10 @@ void		handle_parameters(int ac, char **av, t_push_swap *ps)
 		{			
 			param = ft_atoi(av[i]);
 			t_stack_append(ps->a, t_node_new(param));
+			ps->a->tail->index = ps->a->size - 1;
 		}
 	}
+	t_stack_get_sort_index(ps->a);
 }
 
 void	handle_error()

@@ -72,6 +72,7 @@ void				t_stack_bubble_sort(t_stack *stack);
 void				t_stack_free(t_stack *stack);
 t_stack				*t_stack_copy(t_stack *stack);
 int					t_stack_is_sorted_ascending(t_stack *stack);
+void				t_stack_get_sort_index(t_stack *stack);
 
 /*
  * t_node
