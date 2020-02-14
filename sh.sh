@@ -1,4 +1,3 @@
-number=50000
-for num in $(seq 1 $number); do
-    ./push_swap
+cat perm.txt|while read line; do
+	echo $line | cat -e && ./push_swap "$line" && sleep 0.1;
 done

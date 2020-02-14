@@ -17,17 +17,18 @@ echo "No arguments supplied. Type 'bash get_range.sh --help' for information"
 		echo -e "\tlower - optional. Lower without upper sets script to generate numbers in range (-lower, lower)"
 		echo -e "\tupper - optional"
 	else		
+		ARG="$(./random_number $1 $2)"
 		echo $ARG
 	fi
 ;;
 
 2)
-	setenv ARG="$(./random_number $1 $2)"
+	ARG="$(./random_number $1 $2)"
 	echo $ARG
 ;;
 
 3)
-	setenv ARG="$(./random_number $1 $2 $3)"
+	ARG="$(./random_number $1 $2 $3)"
 ;;
 esac	
 

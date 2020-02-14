@@ -70,6 +70,7 @@ void			print_insructions_list(t_dlist *list)
 	}
 }
 
+
 int				main(int ac, char **av)
 {
 	t_push_swap	*ps;
@@ -77,12 +78,10 @@ int				main(int ac, char **av)
 
 	if (ac > 1)
 	{
-		ps = t_push_swap_new();
-		printf("here");
+		ps = t_push_swap_new();		
 		handle_parameters(ac, av, ps);
-
-		printf("START\n");
-		t_push_swap_print(ps);
+		//printf("START\n");
+		//t_push_swap_print(ps);
 
 		if (t_stack_is_sorted_ascending(ps->a))
 			exit(0);
@@ -91,24 +90,24 @@ int				main(int ac, char **av)
 			split_stack(ps, ps->a);
 			//t_push_swap_print(ps);		
 		}
-		ps->a->size == 2 &&
-		ps->a->head->sort_index > ps->a->head->next->sort_index ? sa(ps) : 0;
-		t_push_swap_print(ps);		
+		/*ps->a->size == 2 &&
+		ps->a->head->sort_index > ps->a->head->next->sort_index ? sa(ps) : 0; */
+		//t_push_swap_print(ps);		
 		//printf("after splitting\n");
 		//t_push_swap_print(ps);
 	
 		while (ps->b->size)
 		{	
 			move_stack_b_to_stack_a(ps);
-			t_push_swap_print(ps);
+			//t_push_swap_print(ps);
 		}
 		
-		printf("\n");
+		//printf("\n");
 		ind = t_node_get_curr_index(ps->a, t_node_get_by_sort_index(ps->a, 0));
 		//t_push_swap_print(ps);
 		while (ps->a->head->sort_index)		
 			ind * 2 >= ps->a->size ? rra(ps) : ra(ps);		
-		t_push_swap_print(ps);
+		//t_push_swap_print(ps);
 		print_insructions_list(ps->instr);
 		exit(0);
 	}

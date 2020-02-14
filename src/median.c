@@ -46,6 +46,30 @@ void move_to_b(t_push_swap *ps, t_node *node)
 	pb(ps);
 }
 
+void			handle_case_of_three(t_push_swap *ps)
+{
+	int			first;
+	int			second;
+	int			third;
+
+	if (t_stack_is_sorted_ascending(ps->a))
+		return ;
+	first = ps->a->head->val;
+	second = ps->a->head->next->val;
+	third = ps->a->tail->val;
+	if (first > second && first > third && ra(ps))
+		second > third ? sa(ps) : 0;
+	else if (first > second)
+		sa(ps);
+	else if (first > third)
+		rra(ps);
+	else
+	{
+		sa(ps);
+		ra(ps);
+	}
+}
+
 void split_stack(t_push_swap *ps, t_stack *a)
 {
 	int median;
@@ -59,10 +83,14 @@ void split_stack(t_push_swap *ps, t_stack *a)
 	tmp = a->head;
 	tmp_next = tmp->next;
 	i = 0;
+	if (a->size == 3)
+		return (handle_case_of_three(ps));
 	while (++i < a->size + 1 && a->size > 2)
 	{		
 		tmp->val <= median ? move_to_b(ps, tmp) : 0;
+		if (a->size == 3)
+			return (handle_case_of_three(ps));
 		tmp = tmp_next;
-		tmp_next = tmp->next;		
+		tmp_next = tmp->next;
 	}
 }
