@@ -5,7 +5,7 @@
 # include <stdio.h>
 # include <stdbool.h>
 # include <unistd.h>
-# include "libft/includes/libft.h"
+# include "../libft/includes/libft.h"
 
 # define EMPTY -1
 
@@ -44,6 +44,7 @@ typedef	struct		g_push_swap
 	int				max;
 	int				min;
 	int				size;
+	t_dlist			*instr;
 }					t_push_swap;
 
 /*
@@ -107,6 +108,6 @@ int					rrb(t_push_swap *ps);
 int					rrr(t_push_swap *ps);
 
 void				handle_error(void);
-int					*get_random_range(int lower, int upper, int size);
+void				handle_parameters(int ac, char **av, t_push_swap *ps);
 
 #endif

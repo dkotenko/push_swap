@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static void			handle_command(char *command, t_push_swap *ps)
 {

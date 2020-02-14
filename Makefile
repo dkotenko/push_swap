@@ -16,7 +16,10 @@ SOURCES = swap.c \
 		t_stack.c \
 		quick_sort.c \
 		bubble_sort.c \
-		commands.c \
+		comm_push.c \
+		comm_swap.c \
+		comm_shift_up.c \
+		comm_shift_down.c \
 		random_number.c \
 		t_node.c \
 		stack_from_int_arr.c \
@@ -42,22 +45,22 @@ CHECKER = checker
 
 COMP_LIB = make -C libft/
 
-INCLUDES = ./push_swap.h ./libft/includes/libft.h
+INCLUDES = ./includes/push_swap.h ./libft/includes/libft.h
 
-all: libft $(PUSH_SWAP) $(CHECKER)
+all: libft $(CHECKER) $(PUSH_SWAP)
 
-$(PUSH_SWAP): libft $(PUSH_SWAP_OBJ) $(OBJ)
-	$(CC) $(FLAGS) -o $(PUSH_SWAP) $(PUSH_SWAP_OBJ) $(OBJ) -L./libft -lft
+$(PUSH_SWAP): $(PUSH_SWAP_OBJ) $(OBJ)
+		$(CC) $(FLAGS) -o $(PUSH_SWAP) $(PUSH_SWAP_OBJ) $(OBJ) -L./libft -lft
 
-$(CHECKER): libft $(CHECKER_OBJ) $(OBJ)
-	$(CC) $(FLAGS) -o $(CHECKER) $(CHECKER_OBJ) $(OBJ) -L./libft -lft
+$(CHECKER): $(CHECKER_OBJ) $(OBJ)
+		$(CC) $(FLAGS) -o $(CHECKER) $(CHECKER_OBJ) $(OBJ) -L./libft -lft
 
 $(OBJDIR)%.o: $(SRCDIR)%.c $(INCLUDES)
 		@/bin/mkdir -p $(OBJDIR)
-		@gcc $(FLAGS) -I./includes -I./libft/includes -c $< -o $@
+		gcc $(FLAGS) -I./includes -I./libft/includes -c $< -o $@
 
 libft:
-	$(COMP_LIB)
+		$(COMP_LIB)
 
 clean:	
 		/bin/rm -rf $(OBJDIR)

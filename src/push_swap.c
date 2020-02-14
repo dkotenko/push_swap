@@ -1,7 +1,4 @@
-#include "push_swap.h"
-
-
-
+#include "../includes/push_swap.h"
 
 t_node *count_moves(t_stack *a, t_stack *b, t_node *node)
 {
@@ -60,50 +57,60 @@ void		move_stack_b_to_stack_a(t_push_swap *ps)
 	pa(ps);
 }
 
-int		main()
+void			print_insructions_list(t_dlist *list)
 {
-	t_push_swap *ps;
+	t_dlist_node	*node;
 
-	int size = 100;
-	int *a = get_random_range(-100, 100, size);
-	//int a[] = {-6, -45, 58, 13, -69, -11, 92, -14, 92, 69, -34, -67, 94, -84, 28, -56, -40, 36, -31, -16};
-	//int a[] = {63, 45, -51, -38, 48, -47, 87, 55, -88, -23, -28, -80, 57, 7, -52, 92, -92, 92, 61, 29, -49, 59, 29, -78, 70, 27, -33, -63, -3, -61, -1, -91, 34, 48, -29, -18, 52, -42, -64, 64, -15, -42, 34, -58, 65, 83, 84, 23, 24, -6, -49, 25, -48, 31, 48, -79, -43, -86, -92, 4, -97, 7, 14, 38, -95, 85, -81, 57, 93, -95, -30, -22, -37, -97, -30, 78, 86, -97, -50, -40, -3, 1, 35, 49, 82, -18, 20, -62, -53, 28, -7, -50, 85, -94, 88, 90, 91, 57, 46, 34}; 
-	ps = t_push_swap_get_stack_from_arr(a, size);
-
-	printf("START\n");
-	t_push_swap_print(ps);
-	if (t_stack_is_sorted_ascending(ps->a))
+	node = list->head;
+	while (node)
 	{
-		printf("already ascending\n");
-		return (0);
-	}		
-	while (!t_stack_is_sorted_ascending(ps->a) && ps->a->size > 2)
-	{
-		split_stack(ps, ps->a);
-		//t_push_swap_print(ps);		
+		ft_putstr((char *)node->data);
+		ft_putchar('\n');
+		node = node->next;
 	}
-	t_push_swap_print(ps);
-	//printf("after splitting\n");
-	//t_push_swap_print(ps);
-	
-	while (ps->b->size)
-	{	
-		move_stack_b_to_stack_a(ps);
+}
+
+int				main(int ac, char **av)
+{
+	t_push_swap	*ps;
+	int			ind;
+
+	if (ac > 1)
+	{
+		ps = NULL;
+		printf("here");
+		handle_parameters(ac, av, ps);
+		exit(0);
+		printf("START\n");
+		t_push_swap_print(ps);
+
+		if (t_stack_is_sorted_ascending(ps->a))
+			exit(0);
+		while (!t_stack_is_sorted_ascending(ps->a) && ps->a->size > 2)
+		{
+			split_stack(ps, ps->a);
+			//t_push_swap_print(ps);		
+		}
+
+		t_push_swap_print(ps);		
+		//printf("after splitting\n");
 		//t_push_swap_print(ps);
-	}
+	
+		while (ps->b->size)
+		{	
+			move_stack_b_to_stack_a(ps);
+			//t_push_swap_print(ps);
+		}
 		
-	printf("\n");
-	int ind = t_node_get_curr_index(ps->a, t_node_get_by_sort_index(ps->a, 0));
-	//t_push_swap_print(ps);
-	while (ps->a->head->sort_index)
-	{
-		ind * 2 >= ps->a->size ? rra(ps) : ra(ps);
+		printf("\n");
+		ind = t_node_get_curr_index(ps->a, t_node_get_by_sort_index(ps->a, 0));
+		//t_push_swap_print(ps);
+		while (ps->a->head->sort_index)		
+			ind * 2 >= ps->a->size ? rra(ps) : ra(ps);		
+		t_push_swap_print(ps);
+		print_insructions_list(ps->instr);
+		exit(0);
 	}
-	t_push_swap_print(ps);
-	if (!t_stack_is_sorted_ascending(ps->a))
-		printf("WRONG ORDER\n");
-	//printf("%d %d %d\n", ps->a->head->eval->moves,
-	//	   ps->a->head->eval->ord_by_ind, ps->a->head->eval->ord_by_val);
 	return (0);
 }
 

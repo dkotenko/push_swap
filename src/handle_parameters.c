@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static int	is_duplicate(t_push_swap *ps, int param)
 {
@@ -62,7 +62,6 @@ void		handle_parameters(int ac, char **av, t_push_swap *ps)
 	int 	i;
 
 	i = 0;
-
 	while (++i < ac)
 	{
 		if (ft_strchr(av[i], ' '))
@@ -71,7 +70,7 @@ void		handle_parameters(int ac, char **av, t_push_swap *ps)
 			handle_splitted(ps, splitted);
 		}
 		else if (is_valid_parameter(ps, av[i]))
-		{
+		{			
 			param = ft_atoi(av[i]);
 			t_stack_append(ps->a, t_node_new(param));
 		}

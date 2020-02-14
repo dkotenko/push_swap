@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 void		t_stack_get_sort_index(t_stack *stack)
 {
