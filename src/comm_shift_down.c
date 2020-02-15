@@ -6,7 +6,7 @@
 /*   By: clala <clala@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 22:20:21 by clala             #+#    #+#             */
-/*   Updated: 2020/02/15 22:32:46 by clala            ###   ########.fr       */
+/*   Updated: 2020/02/15 23:24:09 by clala            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int			rrb(t_push_swap *ps)
 ** Shift down both stacks
 */
 
-int			rr(t_push_swap *ps)
+int			rrr(t_push_swap *ps)
 {
 	rra(ps);
 	rrb(ps);
