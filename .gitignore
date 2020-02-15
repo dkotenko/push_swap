@@ -1,6 +1,8 @@
 *.o
 1
 push_swap
+checker
+checker.exe
 push_swap.exe
 cmake*
 .idea
