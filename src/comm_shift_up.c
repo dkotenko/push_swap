@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   comm_shift_up.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clala <clala@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/15 22:20:25 by clala             #+#    #+#             */
+/*   Updated: 2020/02/15 22:33:20 by clala            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 int			t_stack_shift_up(t_stack *stack)
@@ -7,11 +19,12 @@ int			t_stack_shift_up(t_stack *stack)
 	stack->tail = stack->head;
 	stack->head = stack->head->next;
 	return (1);
-}	
+}
 
 /*
- * Shift up a
- */
+** Shift up a
+*/
+
 int			ra(t_push_swap *ps)
 {
 	char	*s;
@@ -24,8 +37,9 @@ int			ra(t_push_swap *ps)
 }
 
 /*
- * Shift up b
- */
+** Shift up b
+*/
+
 int			rb(t_push_swap *ps)
 {
 	char	*s;
@@ -38,8 +52,9 @@ int			rb(t_push_swap *ps)
 }
 
 /*
- * Shift up both stacks
- */
+** Shift up both stacks
+*/
+
 int			rr(t_push_swap *ps)
 {
 	ra(ps);

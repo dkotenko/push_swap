@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   t_stack1.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clala <clala@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/15 22:21:03 by clala             #+#    #+#             */
+/*   Updated: 2020/02/15 22:45:25 by clala            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 void		t_stack_swap(t_stack *list)
@@ -37,7 +49,7 @@ void		t_stack_free(t_stack *stack)
 		if (i < stack->size - 1)
 		{
 			node = node_next;
-			node_next = node->next;			
+			node_next = node->next;
 		}
 		i++;
 	}
@@ -46,8 +58,8 @@ void		t_stack_free(t_stack *stack)
 t_stack		*t_stack_copy(t_stack *stack)
 {
 	t_stack	*new;
-	int 	i;
-	t_node 	*node;
+	int		i;
+	t_node	*node;
 
 	i = 0;
 	new = t_stack_new();
@@ -62,13 +74,13 @@ t_stack		*t_stack_copy(t_stack *stack)
 	return (new);
 }
 
-int		t_stack_is_sorted_ascending(t_stack *stack)
+int			t_stack_is_sorted_ascending(t_stack *stack)
 {
 	int		i;
 	t_node	*tmp;
 
 	i = 0;
-	tmp = stack->head;	
+	tmp = stack->head;
 	while (i < stack->size - 1)
 	{
 		if (!tmp->next)

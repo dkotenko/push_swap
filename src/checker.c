@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clala <clala@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/15 22:20:12 by clala             #+#    #+#             */
+/*   Updated: 2020/02/15 22:31:22 by clala            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 static void			handle_command(char *command, t_push_swap *ps)
@@ -27,7 +39,7 @@ static void			handle_command(char *command, t_push_swap *ps)
 
 static int			is_valid_instruction(char *s)
 {
-	int 			len;
+	int				len;
 
 	len = ft_strlen(s);
 	if (s && s[0] && ft_strchr("spr", s[0]))
@@ -47,7 +59,7 @@ void				handle_instructions(t_dlist *list)
 	char			*s;
 
 	while (get_next_line(0, &s))
-	{		
+	{
 		if (!is_valid_instruction(s))
 			handle_error();
 		t_dlist_append(list, t_dlist_node_new(s));
@@ -75,9 +87,9 @@ int					main(int ac, char **av)
 	{
 		ps = t_push_swap_new();
 		handle_parameters(ac, av, ps);
-		list = t_dlist_new();	
+		list = t_dlist_new();
 		handle_instructions(list);
-		execute_commands(ps, list);		
+		execute_commands(ps, list);
 		if (t_stack_is_sorted_ascending(ps->a) && !ps->b->size)
 			write(2, "OK\n", 3);
 		else

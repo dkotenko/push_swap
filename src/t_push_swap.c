@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   t_push_swap.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clala <clala@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/15 22:20:59 by clala             #+#    #+#             */
+/*   Updated: 2020/02/15 22:44:42 by clala            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 t_push_swap		*t_push_swap_new(void)
 {
-	t_push_swap	*ps;	
+	t_push_swap	*ps;
 
 	ps = (t_push_swap *)malloc(sizeof(t_push_swap));
 	ps->a = t_stack_new();

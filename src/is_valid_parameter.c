@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   is_valid_parameter.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clala <clala@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/15 22:20:37 by clala             #+#    #+#             */
+/*   Updated: 2020/02/15 22:35:33 by clala            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 static int	is_duplicate(t_push_swap *ps, int param)
@@ -28,13 +40,13 @@ static int	is_integer(char *s, int n)
 	return (1);
 }
 
-int	is_valid_parameter(t_push_swap *ps, char *s)
+int			is_valid_parameter(t_push_swap *ps, char *s)
 {
 	int		param;
 
 	param = ft_atoi(s);
 	if (!is_integer(s, param))
-			handle_error();
+		handle_error();
 	if (is_duplicate(ps, param))
 		handle_error();
 	return (1);

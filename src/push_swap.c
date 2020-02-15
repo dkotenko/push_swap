@@ -6,7 +6,7 @@
 /*   By: clala <clala@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/14 13:51:54 by clala             #+#    #+#             */
-/*   Updated: 2020/02/15 20:39:34 by clala            ###   ########.fr       */
+/*   Updated: 2020/02/15 22:28:33 by clala            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,20 @@ t_node				*count_moves(t_stack *a, t_stack *b, t_node *node)
 	next_node = t_node_get_node_next_sort_index(a, node->sort_index);
 	next_ind = t_node_get_curr_index(a, next_node);
 	node_moves = ind * 2 >= b->size + 1 ? b->size - ind : ind;
-	next_node_moves = next_ind * 2 >= a->size + 1 ? a->size - next_ind : next_ind;
+	next_node_moves = next_ind * 2 >= a->size + 1 ?
+			a->size - next_ind : next_ind;
 	node->moves = node_moves + next_node_moves + 1;
 	return (node);
 }
 
 t_node				*t_node_get_min_moves(t_push_swap *ps)
-{	
-	t_node	*temp = ps->b->head->next;
-	t_node	*node_min = ps->b->head;
+{
+	t_node	*temp;
+	t_node	*node_min;
 	int		i;
-		
+
+	temp = ps->b->head->next;
+	node_min = ps->b->head;
 	count_moves(ps->a, ps->b, node_min);
 	i = 0;
 	while (++i < ps->b->size)
@@ -82,7 +85,6 @@ void				print_insructions_list(t_dlist *list)
 	}
 }
 
-
 int					main(int ac, char **av)
 {
 	t_push_swap		*ps;
@@ -90,7 +92,7 @@ int					main(int ac, char **av)
 
 	if (ac > 1)
 	{
-		ps = t_push_swap_new();		
+		ps = t_push_swap_new();
 		handle_parameters(ac, av, ps);
 		if (t_stack_is_sorted_ascending(ps->a))
 			exit(0);

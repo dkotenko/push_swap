@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   t_node.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clala <clala@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/15 22:20:56 by clala             #+#    #+#             */
+/*   Updated: 2020/02/15 22:44:27 by clala            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
-int 	t_node_get_curr_index(t_stack *stack, t_node *node)
+int			t_node_get_curr_index(t_stack *stack, t_node *node)
 {
 	int		i;
 	t_node	*temp;
 
 	if (!node)
-		return (-1);	
+		return (-1);
 	i = -1;
 	temp = stack->head;
 	while (++i < stack->size)
@@ -52,7 +64,7 @@ t_node		*t_node_get_by_sort_index(t_stack *stack, int index)
 	return (NULL);
 }
 
-t_node *t_node_get_node_next_sort_index(t_stack *stack, int index)
+t_node		*t_node_get_node_next_sort_index(t_stack *stack, int index)
 {
 	int		i;
 	t_node	*node;
@@ -84,6 +96,6 @@ t_node		*t_node_new(int data)
 	new->next = NULL;
 	new->index = -1;
 	new->sort_index = -1;
-	new->moves = 0;	
+	new->moves = 0;
 	return (new);
 }

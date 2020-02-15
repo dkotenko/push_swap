@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   comm_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clala <clala@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/15 22:20:29 by clala             #+#    #+#             */
+/*   Updated: 2020/02/15 22:33:39 by clala            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 void		t_node_swap(t_node *a, t_node *b)
@@ -10,7 +22,7 @@ void		t_node_swap(t_node *a, t_node *b)
 int			sa(t_push_swap *ps)
 {
 	char	*s;
-	
+
 	ps->counter++;
 	if (ps->a->size > 1)
 	{

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   comm_shift_down.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clala <clala@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/15 22:20:21 by clala             #+#    #+#             */
+/*   Updated: 2020/02/15 22:32:46 by clala            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 int			t_stack_shift_down(t_stack *stack)
@@ -10,8 +22,9 @@ int			t_stack_shift_down(t_stack *stack)
 }
 
 /*
- * Shift down a
- */
+** Shift down a
+*/
+
 int			rra(t_push_swap *ps)
 {
 	char	*s;
@@ -24,8 +37,9 @@ int			rra(t_push_swap *ps)
 }
 
 /*
- * Shift down b
- */
+** Shift down b
+*/
+
 int			rrb(t_push_swap *ps)
 {
 	char	*s;
@@ -38,9 +52,10 @@ int			rrb(t_push_swap *ps)
 }
 
 /*
- * Shift down both stacks
- */
-int			rrr(t_push_swap *ps)
+** Shift down both stacks
+*/
+
+int			rr(t_push_swap *ps)
 {
 	rra(ps);
 	rrb(ps);

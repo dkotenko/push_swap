@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   median.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clala <clala@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/02/15 22:20:41 by clala             #+#    #+#             */
+/*   Updated: 2020/02/15 22:36:34 by clala            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 void		print_arr(int *arr, int size)
@@ -22,16 +34,14 @@ int			get_median(t_stack *stack)
 
 	i = 0;
 	tmp = stack->head;
-	arr = (int *)malloc(sizeof(int) * stack->size);	
+	arr = (int *)malloc(sizeof(int) * stack->size);
 	while (i < stack->size)
 	{
 		arr[i++] = tmp->val;
 		tmp = tmp->next;
-	}	
-	bubble_sort(arr, stack->size);	
-	median = arr[stack->size / 2];	
-	
-	
+	}
+	bubble_sort(arr, stack->size);
+	median = arr[stack->size / 2];
 	free(arr);
 	return (median);
 }
@@ -84,9 +94,9 @@ void		split_stack(t_push_swap *ps, t_stack *a)
 		pb(ps);
 	tmp = a->head;
 	tmp_next = tmp->next;
-	i = 0;	
+	i = 0;
 	while (++i < a->size + 1 && a->size > 2)
-	{		
+	{
 		tmp->val <= median ? move_to_b(ps, tmp) : 0;
 		if (a->size == 3)
 			return (handle_case_of_three(ps));
