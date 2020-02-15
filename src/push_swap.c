@@ -75,7 +75,7 @@ int					main(int ac, char **av)
 {
 	t_push_swap		*ps;
 	int				ind;
-
+    
 	if (ac > 1)
 	{
 		ps = t_push_swap_new();		

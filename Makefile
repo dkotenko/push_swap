@@ -6,7 +6,7 @@
 #    By: clala <clala@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/15 16:58:10 by clala             #+#    #+#              #
-#    Updated: 2020/01/30 23:32:38 by clala            ###   ########.fr        #
+#    Updated: 2020/02/15 15:50:44 by clala            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,6 @@ SOURCES = t_push_swap.c \
 		comm_swap.c \
 		comm_shift_up.c \
 		comm_shift_down.c \
-		random_number.c \
 		t_node.c \
 		median.c \
 		handle_parameters.c \
