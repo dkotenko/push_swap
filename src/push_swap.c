@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: clala <clala@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/14 13:51:54 by clala             #+#    #+#             */
+/*   Updated: 2020/02/15 20:39:34 by clala            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 t_node				*count_moves(t_stack *a, t_stack *b, t_node *node)
@@ -75,7 +87,7 @@ int					main(int ac, char **av)
 {
 	t_push_swap		*ps;
 	int				ind;
-    
+
 	if (ac > 1)
 	{
 		ps = t_push_swap_new();		
