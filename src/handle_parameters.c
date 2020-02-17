@@ -37,6 +37,7 @@ void		t_stack_get_sort_index(t_stack *stack)
 	t_stack *sorted;
 	t_node	*origin;
 
+
 	sorted = t_stack_copy(stack);
 	t_stack_bubble_sort(sorted);
 	i = 0;
@@ -50,13 +51,46 @@ void		t_stack_get_sort_index(t_stack *stack)
 	t_stack_free(sorted);
 }
 
+static int	handle_fd(int file_index, char **av, t_push_swap *ps)
+{
+	int		fd;
+	char	*s;
+	char	**splitted;
+	int		param;
+
+	s = NULL;
+	if ((fd = open(av[file_index], O_RDONLY)) < 0 || read(fd, s, 0))
+		return (0);
+	while (get_next_line(fd, &s))
+	{
+		if (ft_strchr(s, ' '))
+		{
+			splitted = ft_strsplit(s, ' ');
+			handle_splitted(ps, splitted);
+		}
+		else if (is_valid_parameter(ps, s))
+		{
+			param = ft_atoi(s);
+			t_stack_append(ps->a, t_node_new(param));
+			ps->a->tail->index = ps->a->size - 1;
+		}
+		free(s);
+	}
+	//s ? ft_free(s) : 0;
+	t_stack_get_sort_index(ps->a);
+	return (1);
+}
+
 void		handle_parameters(int ac, char **av, t_push_swap *ps)
 {
 	char	**splitted;
 	int		param;
 	int		i;
 
-	i = 0;
+	ps->debug = ac > 1 && !ft_strcmp(av[1], "-v") ? true : false;
+	i = ps->debug ? 1 : 0;
+	if (ac > i + 1 && handle_fd(i + 1, av, ps))
+		return ;
 	while (++i < ac)
 	{
 		if (ft_strchr(av[i], ' '))
@@ -71,7 +105,8 @@ void		handle_parameters(int ac, char **av, t_push_swap *ps)
 			ps->a->tail->index = ps->a->size - 1;
 		}
 	}
-	t_stack_get_sort_index(ps->a);
+	if (ps->a->size)
+		t_stack_get_sort_index(ps->a);
 }
 
 void		handle_error(void)

@@ -17,12 +17,13 @@ void		print_arr(int *arr, int size)
 	int		i;
 
 	i = 0;
-	printf("int arr: ");
+	ft_putstr("int arr: ");
 	while (i < size)
 	{
-		printf("%d-", arr[i++]);
+		ft_putnbr(arr[i++]);
+		ft_putchar('-');
 	}
-	printf("\n");
+	ft_putchar('\n');
 }
 
 int			get_median(t_stack *stack)

@@ -97,9 +97,7 @@ int					main(int ac, char **av)
 		if (t_stack_is_sorted_ascending(ps->a))
 			exit(0);
 		while (!t_stack_is_sorted_ascending(ps->a) && ps->a->size > 2)
-		{
 			split_stack(ps, ps->a);
-		}
 		while (ps->b->size)
 		{
 			move_stack_b_to_stack_a(ps);

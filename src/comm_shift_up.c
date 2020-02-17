@@ -33,6 +33,8 @@ int			ra(t_push_swap *ps)
 	t_dlist_append(ps->instr, t_dlist_node_new(s));
 	ps->counter++;
 	t_stack_shift_up(ps->a);
+	if (ps->debug)
+		t_push_swap_print(ps);
 	return (1);
 }
 
@@ -48,6 +50,8 @@ int			rb(t_push_swap *ps)
 	t_dlist_append(ps->instr, t_dlist_node_new(s));
 	ps->counter++;
 	t_stack_shift_up(ps->b);
+	if (ps->debug)
+		t_push_swap_print(ps);
 	return (1);
 }
 

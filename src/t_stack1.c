@@ -23,15 +23,18 @@ void		t_stack_print(t_stack *list)
 	t_node	*tmp;
 
 	if (!list->size)
+	{
+		ft_putchar('\n');
 		return ;
+	}		
 	i = -1;
 	tmp = list->head;
 	while (++i < list->size)
 	{
-		printf("%d, ", tmp->val);
+		ft_printf("%d, ", tmp->val);
 		tmp = tmp->next;
 	}
-	printf("\n");
+	ft_putchar('\n');
 }
 
 void		t_stack_free(t_stack *stack)
@@ -53,6 +56,7 @@ void		t_stack_free(t_stack *stack)
 		}
 		i++;
 	}
+	free(stack);
 }
 
 t_stack		*t_stack_copy(t_stack *stack)

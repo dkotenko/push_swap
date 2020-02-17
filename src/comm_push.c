@@ -20,6 +20,8 @@ int			pa(t_push_swap *ps)
 	t_dlist_append(ps->instr, t_dlist_node_new(s));
 	t_stack_push(ps->a, t_stack_pop(ps->b, ps->b->head));
 	ps->counter++;
+	if (ps->debug)
+		t_push_swap_print(ps);
 	return (1);
 }
 
@@ -31,5 +33,7 @@ int			pb(t_push_swap *ps)
 	t_dlist_append(ps->instr, t_dlist_node_new(s));
 	t_stack_push(ps->b, t_stack_pop(ps->a, ps->a->head));
 	ps->counter++;
+	if (ps->debug)
+		t_push_swap_print(ps);
 	return (1);
 }
