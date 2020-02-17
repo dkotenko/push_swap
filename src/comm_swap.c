@@ -28,11 +28,11 @@ int			sa(t_push_swap *ps)
 	{
 		t_node_swap(ps->a->head, ps->a->head->next);
 		s = ft_strdup("sa");
-		t_dlist_append(ps->instr, t_dlist_node_new(s));		
+		t_dlist_append(ps->instr, t_dlist_node_new(s));
+		if (ps->debug)
+			t_push_swap_print(ps);
 		return (1);
 	}
-	if (ps->debug)
-		t_push_swap_print(ps);
 	return (0);
 }
 
@@ -46,10 +46,10 @@ int			sb(t_push_swap *ps)
 		s = ft_strdup("sb");
 		t_dlist_append(ps->instr, t_dlist_node_new(s));
 		t_node_swap(ps->b->head, ps->b->head->next);
+		if (ps->debug)
+			t_push_swap_print(ps);
 		return (1);
 	}
-	if (ps->debug)
-		t_push_swap_print(ps);
 	return (0);
 }
 

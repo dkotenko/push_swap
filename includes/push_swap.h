@@ -121,5 +121,6 @@ int					rrr(t_push_swap *ps);
 void				handle_error(void);
 void				handle_parameters(int ac, char **av, t_push_swap *ps);
 int					is_valid_parameter(t_push_swap *ps, char *s);
+int					print_help(t_push_swap *ps);
 
 #endif

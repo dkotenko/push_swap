@@ -24,7 +24,8 @@ SOURCES = t_push_swap.c \
 		t_node.c \
 		median.c \
 		handle_parameters.c \
-		is_valid_parameter.c
+		is_valid_parameter.c \
+		print_help.c
 
 PUSH_SWAP_C = push_swap.c
 CHECKER_C = checker.c

@@ -37,7 +37,8 @@ void		t_stack_get_sort_index(t_stack *stack)
 	t_stack *sorted;
 	t_node	*origin;
 
-
+	if (!stack->size)
+		return ;
 	sorted = t_stack_copy(stack);
 	t_stack_bubble_sort(sorted);
 	i = 0;
@@ -63,11 +64,8 @@ static int	handle_fd(int file_index, char **av, t_push_swap *ps)
 		return (0);
 	while (get_next_line(fd, &s))
 	{
-		if (ft_strchr(s, ' '))
-		{
-			splitted = ft_strsplit(s, ' ');
+		if (ft_strchr(s, ' ') && (splitted = ft_strsplit(s, ' ')))
 			handle_splitted(ps, splitted);
-		}
 		else if (is_valid_parameter(ps, s))
 		{
 			param = ft_atoi(s);
@@ -76,7 +74,6 @@ static int	handle_fd(int file_index, char **av, t_push_swap *ps)
 		}
 		free(s);
 	}
-	//s ? ft_free(s) : 0;
 	t_stack_get_sort_index(ps->a);
 	return (1);
 }
@@ -88,6 +85,7 @@ void		handle_parameters(int ac, char **av, t_push_swap *ps)
 	int		i;
 
 	ps->debug = ac > 1 && !ft_strcmp(av[1], "-v") ? true : false;
+	!ft_strcmp(av[1], "--help") ? print_help(ps) : 0;
 	i = ps->debug ? 1 : 0;
 	if (ac > i + 1 && handle_fd(i + 1, av, ps))
 		return ;
@@ -98,15 +96,13 @@ void		handle_parameters(int ac, char **av, t_push_swap *ps)
 			splitted = ft_strsplit(av[i], ' ');
 			handle_splitted(ps, splitted);
 		}
-		else if (is_valid_parameter(ps, av[i]))
+		else if (is_valid_parameter(ps, av[i]) && (param = ft_atoi(av[i])))
 		{
-			param = ft_atoi(av[i]);
 			t_stack_append(ps->a, t_node_new(param));
 			ps->a->tail->index = ps->a->size - 1;
 		}
 	}
-	if (ps->a->size)
-		t_stack_get_sort_index(ps->a);
+	t_stack_get_sort_index(ps->a);
 }
 
 void		handle_error(void)

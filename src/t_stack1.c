@@ -45,7 +45,7 @@ void		t_stack_free(t_stack *stack)
 
 	i = 0;
 	node = stack->head;
-	node_next = node->next;
+	node_next = node->next;	
 	while (i < stack->size)
 	{
 		free(node);
