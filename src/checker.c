@@ -6,7 +6,7 @@
 /*   By: clala <clala@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 22:20:12 by clala             #+#    #+#             */
-/*   Updated: 2020/02/15 22:31:22 by clala            ###   ########.fr       */
+/*   Updated: 2020/02/20 21:03:09 by clala            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,10 @@ void				handle_instructions(t_dlist *list)
 	while (get_next_line(0, &s))
 	{
 		if (!is_valid_instruction(s))
-			handle_error();
+		{
+			write(1, "Error\n", 6);
+			exit(0);
+		}
 		t_dlist_append(list, t_dlist_node_new(s));
 	}
 }
@@ -94,7 +97,7 @@ int					main(int ac, char **av)
 			write(2, "OK\n", 3);
 		else
 			write(2, "KO\n", 3);
-		exit(1);
+		exit(0);
 	}
 	return (0);
 }

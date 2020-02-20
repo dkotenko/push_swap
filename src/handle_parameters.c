@@ -6,7 +6,7 @@
 /*   By: clala <clala@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 22:20:33 by clala             #+#    #+#             */
-/*   Updated: 2020/02/15 22:35:02 by clala            ###   ########.fr       */
+/*   Updated: 2020/02/20 21:03:54 by clala            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,8 +105,10 @@ void		handle_parameters(int ac, char **av, t_push_swap *ps)
 	t_stack_get_sort_index(ps->a);
 }
 
-void		handle_error(void)
+int			handle_error(t_push_swap *ps)
 {
 	write(2, "Error\n", 6);
 	exit(1);
+	t_push_swap_free(ps);
+	return (1);
 }

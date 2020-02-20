@@ -31,42 +31,60 @@ class PS_Numbers():
 			self.add_number(n, x, STACK_A_Y, width)
 			i += 1
 
-	def get_numbers(self):
-		def stdin_numbers():
-			s = []
-			if len(sys.argv) < 2:
-				print('No arguments. Stop')
-				exit()
-			f = None
-			if len(sys.argv) == 2:
-				if sys.argv[1] == 'Error':
-					print('Error')
-					exit()
-				try:
-					f = open(sys.argv[1], "r")
-				except FileNotFoundError:
-					print("Can`t open the file")
-					exit()
-				temp = [l.split() for l in [line.rstrip() for line in f]]
-				for t in temp:
-					for number in t:
-						s.append(int(number))
-				f.close()
-			return s
-		s = stdin_numbers()
-		if not s:
-			i = 0
-			for arg in sys.argv:
-				if not i:
-					i += 1
-					continue
-				if arg.find(' '):
-					splitted = arg.split()
-					for n in splitted:
-						s.append(int(n))
-				else:
-					s.append(int(arg))
+	def handle_1_argument(self, arg):
+		s = arg.split()
+		a = 0
+		for n in s:
+			try:
+				a = int(n)
+			except ValueError:
+				return None
 		return s
+
+	def stdin_numbers(self):		
+		i = 0
+		s = []
+		for arg in sys.argv:
+			if not i:
+				i += 1
+				continue
+			if arg.find(' '):
+				splitted = arg.split()
+				for n in splitted:
+					s.append(int(n))
+			else:
+				s.append(int(arg))
+		if not s:
+			print("Can`t open the file")
+			exit()
+		return s
+
+	def get_numbers(self):
+		s = []
+		if len(sys.argv) < 2:
+			print('No arguments. Stop')
+			exit()
+		f = None
+		if len(sys.argv) == 2:
+			if sys.argv[1] == 'Error':
+				print('Error')
+				exit()					
+			try:
+				f = open(sys.argv[1], "r")
+			except FileNotFoundError:
+				s = self.stdin_numbers()
+				return s				
+			temp = [l.split() for l in [line.rstrip() for line in f]]				
+			for t in temp:
+				for number in t:
+					s.append(int(number))
+			f.close()
+		return s
+
+	
+		
+		
+		
 
 
 class PS_Number(pygame.sprite.Sprite):

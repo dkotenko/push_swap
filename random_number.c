@@ -6,21 +6,21 @@
 /*   By: clala <clala@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 22:19:59 by clala             #+#    #+#             */
-/*   Updated: 2020/02/15 22:20:01 by clala            ###   ########.fr       */
+/*   Updated: 2020/02/20 17:40:18 by clala            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h> 
-#include <stdlib.h> 
+#include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 #include "libft/includes/libft.h"
 #include <limits.h>
-  
+
 void	print_range(int *range, int size)
 {
 	int	i;
 
-	i = 0;	
+	i = 0;
 	while (i < size)
 	{
 		ft_putnbr(range[i++]);
@@ -37,7 +37,7 @@ int		is_duplicate(int *arr, int size, int nbr)
 	while (i < size)
 	{
 		if (arr[i] == nbr)
-			return (1);		
+			return (1);
 		i++;
 	}
 	return (0);
@@ -62,14 +62,14 @@ int		*get_random_range(int lower, int upper, int size)
 	}
 	return (range);
 }
-  
-int		main(int ac, char **av) 
-{ 
-    int	lower;
+
+int		main(int ac, char **av)
+{
+	int	lower;
 	int	upper;
 	int	size;
 
-	srand(time(0));  
+	srand(time(0));
 	if (ac > 1 && ac < 5)
 	{
 		lower = 0;
@@ -84,8 +84,8 @@ int		main(int ac, char **av)
 		{
 			lower = ac == 3 ? ft_atoi(av[2]) * -1 : ft_atoi(av[2]);
 			upper = ac == 3 ? lower * -1 : ft_atoi(av[3]);
-		}		
+		}
 		print_range(get_random_range(lower, upper, size), size);
-	}  
-    return (0); 
+	}
+	return (0);
 }

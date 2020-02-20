@@ -36,6 +36,7 @@ class Stacks:
 		if self.moves_counter < turn <= self.len_instructions:
 			if self.instructions[self.moves_counter] in self.instr_dict:
 				self.instr_dict[self.instructions[self.moves_counter]]()
+			
 
 
 	def count_positions(self, numbers):

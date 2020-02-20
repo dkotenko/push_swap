@@ -6,7 +6,7 @@
 /*   By: clala <clala@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 22:21:03 by clala             #+#    #+#             */
-/*   Updated: 2020/02/15 22:45:25 by clala            ###   ########.fr       */
+/*   Updated: 2020/02/20 17:35:16 by clala            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void		t_stack_print(t_stack *list)
 	{
 		ft_putchar('\n');
 		return ;
-	}		
+	}
 	i = -1;
 	tmp = list->head;
 	while (++i < list->size)
@@ -45,7 +45,7 @@ void		t_stack_free(t_stack *stack)
 
 	i = 0;
 	node = stack->head;
-	node_next = node->next;	
+	node_next = node->next;
 	while (i < stack->size)
 	{
 		free(node);

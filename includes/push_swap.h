@@ -6,7 +6,7 @@
 /*   By: clala <clala@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 22:21:50 by clala             #+#    #+#             */
-/*   Updated: 2020/02/15 22:24:59 by clala            ###   ########.fr       */
+/*   Updated: 2020/02/20 20:57:19 by clala            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,7 @@ int					rra(t_push_swap *ps);
 int					rrb(t_push_swap *ps);
 int					rrr(t_push_swap *ps);
 
-void				handle_error(void);
+int					handle_error(t_push_swap *ps);
 void				handle_parameters(int ac, char **av, t_push_swap *ps);
 int					is_valid_parameter(t_push_swap *ps, char *s);
 int					print_help(t_push_swap *ps);

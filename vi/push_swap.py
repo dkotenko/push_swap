@@ -38,8 +38,7 @@ def draw_game():
 	screen.blit(text_to_screen(str(TIME_IN_SECONDS), colors.WHITE), (450, 50))
 	screen.blit(text_to_screen('CURRENT INSTRUCTION', colors.BLACK), (650, 50))
 	if (stacks.moves_counter < stacks.len_instructions):
-		screen.blit(text_to_screen(stacks.instructions[stacks.moves_counter], colors.WHITE), (950, 50))
-
+		screen.blit(text_to_screen(stacks.instructions[stacks.moves_counter], colors.WHITE), (1050, 50))	
 	all_sprites.draw(screen)
 	pygame.display.flip()
 	return
@@ -124,7 +123,7 @@ while running:
 
 	if time_since_enter // (1000) > prev_time:
 		TIME_IN_SECONDS += 1
-		prev_time = time_since_enter // (1000)
+		prev_time = time_since_enter // (1000)	
 
 #выход
 #pygame.quit()

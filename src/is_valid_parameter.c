@@ -6,7 +6,7 @@
 /*   By: clala <clala@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 22:20:37 by clala             #+#    #+#             */
-/*   Updated: 2020/02/15 22:35:33 by clala            ###   ########.fr       */
+/*   Updated: 2020/02/20 20:57:22 by clala            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int			is_valid_parameter(t_push_swap *ps, char *s)
 
 	param = ft_atoi(s);
 	if (!is_integer(s, param))
-		handle_error();
+		handle_error(ps);
 	if (is_duplicate(ps, param))
-		handle_error();
+		handle_error(ps);
 	return (1);
 }
