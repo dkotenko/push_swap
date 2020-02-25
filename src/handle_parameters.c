@@ -59,6 +59,7 @@ static int	handle_fd(int file_index, char **av, t_push_swap *ps)
 	char	**splitted;
 	int		param;
 
+	fd = 0;
 	s = NULL;
 	if ((fd = open(av[file_index], O_RDONLY)) < 0 || read(fd, s, 0))
 		return (0);
