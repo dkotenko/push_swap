@@ -6,7 +6,7 @@
 /*   By: clala <clala@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 22:20:33 by clala             #+#    #+#             */
-/*   Updated: 2020/02/20 21:03:54 by clala            ###   ########.fr       */
+/*   Updated: 2020/03/03 19:32:58 by clala            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,9 @@ void		handle_parameters(int ac, char **av, t_push_swap *ps)
 			splitted = ft_strsplit(av[i], ' ');
 			handle_splitted(ps, splitted);
 		}
-		else if (is_valid_parameter(ps, av[i]) && (param = ft_atoi(av[i])))
+		else if (is_valid_parameter(ps, av[i]))
 		{
+			param = ft_atoi(av[i]);
 			t_stack_append(ps->a, t_node_new(param));
 			ps->a->tail->index = ps->a->size - 1;
 		}
