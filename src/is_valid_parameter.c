@@ -6,7 +6,7 @@
 /*   By: clala <clala@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/15 22:20:37 by clala             #+#    #+#             */
-/*   Updated: 2020/02/20 20:57:22 by clala            ###   ########.fr       */
+/*   Updated: 2020/03/07 21:27:24 by clala            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static int	is_integer(char *s, int n)
 
 	len = ft_strlen(s);
 	if ((s[0] != '-' && !ft_isdigit(s[0])) || (int)len != ft_ilen(n))
+		return (0);
+	if (s[0] == '-' && len == 1)
 		return (0);
 	return (1);
 }
