@@ -15,7 +15,7 @@ optimized data sorting.
 - presorting by splitting stack A in 2 chunks consecutively
 - best move evaluation
 - 2 stacks shift
-- Python vizualisation
+- Python visualization
 - file reading
 
 
@@ -23,10 +23,10 @@ optimized data sorting.
 - change one-pointed shifts of 2 stacks by double-shift operations 
 - better move evaluation
 
-**How to use Python vizualisation:**  
+**How to use Python visualization:**  
 ./push_swap "filename or args squence" | python3 push_swap.py "filename or args squence"  
 ![](<img/viz.png>)  
-Vizualisation screenshot
+Visualization screenshot
 
 
 
