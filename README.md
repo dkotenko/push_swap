@@ -24,7 +24,7 @@ optimized data sorting.
 - better move evaluation
 
 **How to use Python visualization:**  
-./push_swap "filename or args squence" | python3 push_swap.py "filename or args squence".   
+./push_swap "filename or args squence" | python3 push_swap.py "filename or args squence"&nbsp;
 ![](<img/viz.png>)  
 Visualization screenshot
 
